@@ -32,9 +32,8 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-12 text-right">
-                                        <button type="button" class="btn btn-default preview-add-button">
-                                            <span class="glyphicon glyphicon-plus"></span> Add
-                                        </button>
+                                        <g:submitButton name="signup" class="btn btn-default"
+                                            value="${message(code: 'user.signup.label', default: 'Sign Up')}" />
                                     </div>
                                 </div>
 

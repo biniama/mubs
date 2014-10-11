@@ -30,6 +30,12 @@ class BootStrap {
         // Permit All
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user*//**', 'permitAll').save()
 
+        //TBD
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/blog*//**', 'permitAll').save()
+
+        // Permitted to Logged In Users Only
+        //Requestmap.findOrSaveByUrlAndConfigAttribute('/blog//**', 'isFullyAuthenticated(), ROLE_BLOGGER').save()
+
         print("Finished initializing Bootstrap (Spring Security Configurations and Test Data).")
     }
 

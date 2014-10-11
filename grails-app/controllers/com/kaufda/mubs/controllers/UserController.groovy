@@ -5,7 +5,6 @@ import com.kaufda.mubs.model.User
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
 class UserController {
 
     def userService
@@ -17,21 +16,43 @@ class UserController {
     }
 
     def saveUser() {
-        println 'here'
 
         User user = userService.saveUser(params.firstName, params.lastName, params.email, params.gender,
-                params.username, params.password, params.confirmedPassword)
+                params.username, params.password, params.confirmPassword)
 
         if(null != user) {
 
             flash.message = message(code: 'user.saveUser.success.result')
-            redirect action: 'index'
 
         } else {
 
             flash.message = message(code: 'user.saveUser.failed.result', default: 'Error creating User')
-            redirect action: 'index'
         }
+
+        // Go to home page
+        render (view: '/')
+    }
+
+    def changePassword() {
+
+        render (view: 'changePassword')
+    }
+
+    def changePasswordConfirm() {
+
+        Boolean isPasswordChanged = userService.changePassword(params.oldPassword, params.newPassword, params.confirmNewPassword)
+
+        if(isPasswordChanged) {
+
+            flash.message = message(code: 'user.password.change.successful', default: 'Password is successfully changed.')
+
+        } else {
+
+            flash.message = message(code: 'error.user.password.change.not.successful', default: 'Password change is not successful.')
+        }
+
+        // Go to home page
+        render (view: '/')
 
     }
 

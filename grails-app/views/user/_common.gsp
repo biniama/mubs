@@ -39,7 +39,10 @@
         <g:message code="user.gender.label" default="Gender" />
     </label>
     <div class="col-sm-8">
-        <g:select class="form-control" name="gender" from="${com.kaufda.mubs.model.GenderTypeEnum?.values()}" keys="${com.kaufda.mubs.model.GenderTypeEnum.values()*.name()}" value="${userInstance?.gender?.name()}"  noSelection="['': '']"/>
+        <g:select class="form-control" name="gender" from="${com.kaufda.mubs.model.GenderTypeEnum?.values()}"
+                  keys="${com.kaufda.mubs.model.GenderTypeEnum?.values()}"
+                  value="${userInstance?.gender?.name().toString()}"
+                  noSelection="['': '--Choose--']" valueMessagePrefix="gender"/>
     </div>
 </div>
 
@@ -59,7 +62,7 @@
         <span class="required-indicator">*</span>
     </label>
     <div class="col-sm-8">
-        <g:textField class="form-control" name="password" required="" value="${userInstance?.password}"/>
+        <g:passwordField class="form-control" name="password" required="" value="${userInstance?.password}"/>
     </div>
 </div>
 
@@ -69,6 +72,6 @@
         <span class="required-indicator">*</span>
     </label>
     <div class="col-sm-8">
-        <g:textField class="form-control" name="confirmPassword" required="" value=""/>
+        <g:passwordField class="form-control" name="confirmPassword" required="" value=""/>
     </div>
 </div>

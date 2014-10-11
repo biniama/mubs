@@ -24,28 +24,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_common.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/user/_common.gsp">
+      <file leaf-file-name="_header.gsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/_header.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.3265305" vertical-offset="436" max-vertical-offset="1360">
-              <caret line="41" column="97" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="97" />
+            <state vertical-scroll-proportion="-6.6153846" vertical-offset="219" max-vertical-offset="850">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
-                <marker date="1413007231135" expanded="true" signature="161:445" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="331:438" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="471:750" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="638:743" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="776:1039" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="933:1032" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="1065:1483" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="1121:1198" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="1225:1476" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="1567:1698" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="1725:1842" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="1933:2064" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="2091:2208" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="2241:2586" placeholder="..." />
-                <marker date="1413007231135" expanded="true" signature="2480:2579" placeholder="..." />
+                <marker date="1413017598453" expanded="true" signature="653:1080" placeholder="..." />
+                <marker date="1413017598453" expanded="true" signature="1110:2179" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BootStrap.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.026833631" vertical-offset="189" max-vertical-offset="850">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="changePassword.gsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/user/changePassword.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.714286" vertical-offset="663" max-vertical-offset="1394">
+              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,8 +62,8 @@
       <file leaf-file-name="signup.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/user/signup.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6122448" vertical-offset="431" max-vertical-offset="918">
-              <caret line="30" column="58" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
+            <state vertical-scroll-proportion="-3.6530612" vertical-offset="365" max-vertical-offset="901">
+              <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -63,53 +72,11 @@
       <file leaf-file-name="UserService.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/services/com/kaufda/mubs/services/UserService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="380" max-vertical-offset="1258">
-              <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="2312">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
                 <element signature="e#34#83#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/controllers/UserController.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.2173913" vertical-offset="221" max-vertical-offset="2295">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-              <folding>
-                <element signature="e#37#70#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messages.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/i18n/messages.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="852" max-vertical-offset="1241">
-              <caret line="66" column="47" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_header.gsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/_header.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55833334" vertical-offset="206" max-vertical-offset="765">
-              <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mubs.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/assets/stylesheets/mubs.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="612">
-              <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -129,9 +96,7 @@
         <option value="$PROJECT_DIR$/grails-app/db-scripts/init/init.mysql.sql" />
         <option value="$PROJECT_DIR$/grails-app/db-scripts/init/drop_db_and_delete_user.sql" />
         <option value="$PROJECT_DIR$/src/groovy/Constants.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/model/BlogController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/kaufda/mubs/model/BlogEntry.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/kaufda/mubs/model/Blog.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/kaufda/mubs/model/User.groovy" />
@@ -142,7 +107,6 @@
         <option value="$PROJECT_DIR$/grails-app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
         <option value="$PROJECT_DIR$/grails-app/assets/stylesheets/mubs.css" />
-        <option value="$PROJECT_DIR$/grails-app/assets/stylesheets/header.css" />
         <option value="$PROJECT_DIR$/grails-app/views/index.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/user/signupp.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/user/_form.gsp" />
@@ -150,15 +114,20 @@
         <option value="$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/controllers/user/UserController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/ControllerssController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/controllerss/UserController.groovy" />
+        <option value="$PROJECT_DIR$/src/groovy/com/kaufda/exceptions/ServiceException.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/i18n/messages_en_US.properties" />
+        <option value="$PROJECT_DIR$/src/groovy/com/kaufda/mubs/model/GenderTypeEnum.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/user/signup.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/user/_common.gsp" />
-        <option value="$PROJECT_DIR$/src/groovy/com/kaufda/mubs/model/GenderTypeEnum.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/services/com/kaufda/mubs/services/UserService.groovy" />
-        <option value="$PROJECT_DIR$/src/groovy/com/kaufda/exceptions/ServiceException.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/user/changePassword.gsp" />
         <option value="$PROJECT_DIR$/src/groovy/com/kaufda/exceptions/UserServiceException.groovy" />
         <option value="$PROJECT_DIR$/grails-app/i18n/messages.properties" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/controllers/UserController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/kaufda/mubs/services/UserService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/assets/stylesheets/header.css" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/_header.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/model/BlogController.groovy" />
       </list>
     </option>
   </component>
@@ -292,17 +261,18 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/grails-app/domain/com/kaufda/mubs/model" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\workspace-intellij\mubs\grails-app\views\user" />
+      <recent name="E:\workspace-intellij\mubs\grails-app\i18n" />
       <recent name="E:\workspace-intellij\mubs\src\groovy\com\kaufda\exceptions" />
       <recent name="E:\workspace-intellij\mubs\grails-app\assets\stylesheets" />
       <recent name="E:\workspace-intellij\mubs\grails-app\views\layouts" />
-      <recent name="E:\workspace-intellij\mubs\grails-app" />
-      <recent name="E:\workspace-intellij\mubs\src\groovy" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.kaufda" />
@@ -559,15 +529,15 @@
       <changelist id="fb9d38e8-c68e-4121-b861-de059b311549" name="Default" comment="" />
       <created>1412943917772</created>
       <updated>1412943917772</updated>
-      <workItem from="1412943929643" duration="19509000" />
+      <workItem from="1412943929643" duration="27024000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19509000" />
+    <option name="totallyTimeSpent" value="27024000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -576,7 +546,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17556635" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -592,7 +562,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26235095" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43781942" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36967632" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27993527" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -611,7 +581,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17556635" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33049405" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -630,7 +600,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26235095" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31516185" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36967632" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27993527" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -661,11 +631,41 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/controllers/UserController.groovy</url>
-          <line>21</line>
+          <line>19</line>
           <properties />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/grails-app/services/com/kaufda/mubs/services/UserService.groovy</url>
+          <line>17</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/grails-app/services/com/kaufda/mubs/services/UserService.groovy</url>
+          <line>61</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/grails-app/services/com/kaufda/mubs/services/UserService.groovy</url>
+          <line>87</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/controllers/UserController.groovy</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/grails-app/services/com/kaufda/mubs/services/UserService.groovy</url>
+          <line>71</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1" />
+      <option name="time" value="8" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -707,17 +707,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/5eaf453f/669ed08a-ce0e-4c64-85e2-ecdf6df05f55/mubs..user">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/5eaf453f/669ed08a-ce0e-4c64-85e2-ecdf6df05f55/mubs..user_role">
@@ -770,57 +759,6 @@
       </provider>
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55025125" vertical-offset="189" max-vertical-offset="748">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/kaufda/mubs/model/BlogEntry.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.06" vertical-offset="0" max-vertical-offset="646">
-          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/kaufda/mubs/model/Blog.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.36" vertical-offset="0" max-vertical-offset="289">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/kaufda/mubs/model/User.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.42" vertical-offset="307" max-vertical-offset="1479">
-          <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="988" max-vertical-offset="1598">
-          <caret line="81" column="75" selection-start-line="81" selection-start-column="75" selection-end-line="81" selection-end-column="75" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/_footer.gsp">
@@ -881,14 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/assets/stylesheets/header.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/index.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10261569" vertical-offset="1326" max-vertical-offset="2176">
@@ -921,43 +851,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/groovy/com/kaufda/mubs/model/GenderTypeEnum.groovy">
+    <entry file="file://$PROJECT_DIR$/src/groovy/com/kaufda/exceptions/ServiceException.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48433048" vertical-offset="0" max-vertical-offset="646">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.13636364" vertical-offset="0" max-vertical-offset="425">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/user/signup.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6122448" vertical-offset="431" max-vertical-offset="918">
-          <caret line="30" column="58" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/user/_common.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3265305" vertical-offset="436" max-vertical-offset="1360">
-          <caret line="41" column="97" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="97" />
-          <folding>
-            <marker date="1413007231135" expanded="true" signature="161:445" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="331:438" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="471:750" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="638:743" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="776:1039" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="933:1032" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="1065:1483" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="1121:1198" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="1225:1476" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="1567:1698" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="1725:1842" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="1933:2064" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="2091:2208" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="2241:2586" placeholder="..." />
-            <marker date="1413007231135" expanded="true" signature="2480:2579" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -969,55 +867,189 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/groovy/com/kaufda/exceptions/UserServiceException.groovy">
+    <entry file="jar://E:/all-sdks/grails-2.4.3/lib/org.springframework/spring-tx/jars/spring-tx-4.0.6.RELEASE-sources.jar!/org/springframework/transaction/support/TransactionTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14529915" vertical-offset="0" max-vertical-offset="351">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2002" max-vertical-offset="2737">
+          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/groovy/com/kaufda/exceptions/ServiceException.groovy">
+    <entry file="dbDummy://dbtable:/5eaf453f/669ed08a-ce0e-4c64-85e2-ecdf6df05f55/mubs..user">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/user/_common.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13636364" vertical-offset="0" max-vertical-offset="425">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.16666667" vertical-offset="901" max-vertical-offset="1411">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="76" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="988" max-vertical-offset="1598">
+          <caret line="81" column="75" selection-start-line="81" selection-start-column="75" selection-end-line="81" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/groovy/com/kaufda/mubs/model/GenderTypeEnum.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47574627" vertical-offset="0" max-vertical-offset="536">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/groovy/com/kaufda/exceptions/UserServiceException.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3488806" vertical-offset="0" max-vertical-offset="536">
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/i18n/messages.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="852" max-vertical-offset="1241">
-          <caret line="66" column="47" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.6749522" vertical-offset="786" max-vertical-offset="1309">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/kaufda/mubs/services/UserService.groovy">
+    <entry file="file://$PROJECT_DIR$/target/work/plugins/spring-security-core-2.0-RC4/grails-app/services/grails/plugin/springsecurity/SpringSecurityService.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="380" max-vertical-offset="1258">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-          <folding>
-            <element signature="e#34#83#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.8888889" vertical-offset="3434" max-vertical-offset="3808">
+          <caret line="238" column="0" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/controllers/UserController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2173913" vertical-offset="221" max-vertical-offset="2295">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.21223709" vertical-offset="620" max-vertical-offset="2652">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="e#37#70#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/kaufda/mubs/model/diagram_domain_class_dependencies.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/kaufda/mubs/model/User.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10147992" vertical-offset="547" max-vertical-offset="1479">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/assets/stylesheets/header.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33273703" vertical-offset="205" max-vertical-offset="901">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/_header.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55833334" vertical-offset="206" max-vertical-offset="765">
-          <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+        <state vertical-scroll-proportion="-6.6153846" vertical-offset="219" max-vertical-offset="850">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <marker date="1413017598453" expanded="true" signature="653:1080" placeholder="..." />
+            <marker date="1413017598453" expanded="true" signature="1110:2179" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/kaufda/mubs/services/UserService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="2312">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#34#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/kaufda/mubs/model/BlogEntry.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4" vertical-offset="0" max-vertical-offset="646">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/model/BlogEntryController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1853">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/user/changePassword.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.714286" vertical-offset="663" max-vertical-offset="1394">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/user/signup.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6530612" vertical-offset="365" max-vertical-offset="901">
+          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/kaufda/mubs/model/BlogController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.068" vertical-offset="0" max-vertical-offset="1819">
+          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/kaufda/mubs/model/Blog.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23379175" vertical-offset="0" max-vertical-offset="509">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026833631" vertical-offset="189" max-vertical-offset="850">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

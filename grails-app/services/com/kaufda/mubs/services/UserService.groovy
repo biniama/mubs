@@ -10,10 +10,12 @@ class UserService {
 
     def messageSource
 
-    User saveUser(String firstName, String lastName, String email, String gender,
-                  String username, String password, String confirmedPassword) {
+    def springSecurityService
 
-        if(!password.equals(confirmedPassword)) {
+    User saveUser(String firstName, String lastName, String email, String gender,
+                  String username, String password, String confirmPassword) {
+
+        if(!password.equals(confirmPassword)) {
 
             def errorMessage = messageSource.getMessage("error.user.password.does.not.match", null, "Password does not match. Please try again.", Locale.getDefault())
 
@@ -22,7 +24,7 @@ class UserService {
             throw (new UserServiceException(errorMessage, UserServiceException.ERROR_PASSWORD_DOES_NOT_MATCH))
         }
 
-        if(isValid(firstName, lastName, email, gender, username, password, confirmedPassword)) {
+        if(isValid(firstName, lastName, email, gender, username, password, confirmPassword)) {
 
             User user = new User()
 
@@ -55,8 +57,68 @@ class UserService {
 
     }
 
-    Boolean isValid(String firstName, String lastName, String email, String gender,
-                    String username, String password, String confirmedPassword) {
+    Boolean changePassword(String oldPassword, String newPassword, String confirmNewPassword) {
+
+        User currentUser = springSecurityService.getCurrentUser()
+
+        /*
+            boolean isPasswordValid(String encPass, String rawPass, Object salt) throws DataAccessException
+            Validates a specified "raw" password against an encoded password.
+
+            Source: Spring Security Documenation
+            http://docs.spring.io/spring-security/site/docs/2.0.7.RELEASE/apidocs/org/springframework/security/providers/encoding/PasswordEncoder.html
+        */
+
+        if(!springSecurityService?.passwordEncoder.isPasswordValid(currentUser.getPassword(), oldPassword, null)) {
+
+            def errorMessage = messageSource.getMessage("error.incorrect.user.old.password", null, "Incorrect old password. Please try again.", Locale.getDefault())
+
+            log.error(errorMessage)
+
+            throw (new UserServiceException(errorMessage, UserServiceException.ERROR_INCORRECT_OLD_USER_PASSWORD))
+        }
+
+        if(!newPassword.equals(confirmNewPassword)) {
+
+            def errorMessage = messageSource.getMessage("error.user.password.does.not.match", null, "Password does not match. Please try again.", Locale.getDefault())
+
+            log.error(errorMessage)
+
+            throw (new UserServiceException(errorMessage, UserServiceException.ERROR_PASSWORD_DOES_NOT_MATCH))
+        }
+
+        currentUser.password = newPassword
+
+        currentUser.save()
+
+        if(!currentUser.hasErrors()) {
+
+            return true
+
+        } else {
+
+            // handle failure case
+            def errorMessage = messageSource.getMessage("error.changing.password", null, "Error changing password.", Locale.getDefault())
+
+            log.error(errorMessage)
+
+            throw (new UserServiceException(errorMessage, UserServiceException.ERROR_CHANGING_PASSWORD))
+        }
+    }
+
+    /**
+     * Helper method
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param gender
+     * @param username
+     * @param password
+     * @param confirmPassword
+     * @return
+     */
+    private Boolean isValid(String firstName, String lastName, String email, String gender,
+                    String username, String password, String confirmPassword) {
 
         if(null == username || username.isEmpty()) {
 
