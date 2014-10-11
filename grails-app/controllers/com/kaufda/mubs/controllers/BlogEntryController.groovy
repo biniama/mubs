@@ -1,14 +1,38 @@
-package com.kaufda.mubs.model
+package com.kaufda.mubs.controllers
 
-
+import com.kaufda.mubs.model.BlogEntry
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
 class BlogEntryController {
 
+    def blogService
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+
+    def newBlogEntry() {
+
+        render (view: 'newBlogEntry')
+    }
+
+    def saveBlogEntry() {
+
+        BlogEntry blogEntry = blogService.saveBlogEntry(params.blogTitle, params.blogContent)
+
+        if(null != blogEntry) {
+
+            flash.message = message(code: 'user.saveUser.success.result')
+
+        } else {
+
+            flash.message = message(code: 'user.saveUser.failed.result', default: 'Error creating User')
+        }
+
+        // Go to home page
+        render (view: '/')
+
+    }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)

@@ -97,7 +97,6 @@ class UserService {
 
         } else {
 
-            // handle failure case
             def errorMessage = messageSource.getMessage("error.changing.password", null, "Error changing password.", Locale.getDefault())
 
             log.error(errorMessage)

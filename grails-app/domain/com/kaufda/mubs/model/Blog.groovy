@@ -1,6 +1,6 @@
 package com.kaufda.mubs.model
 
-class Blog {
+class Blog extends AbstractDomain {
 
     static belongsTo = [user: User]
 

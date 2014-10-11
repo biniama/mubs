@@ -17,7 +17,8 @@ class BlogEntry extends AbstractDomain {
     String content
 
     // Number of people who this blog in detail view
-    Integer numberOfVisits
+    // Default value is set to 0
+    Integer numberOfVisits = 0
 
     // Image attached to the blog
     /*
@@ -28,5 +29,10 @@ class BlogEntry extends AbstractDomain {
     byte[] image
 
     static constraints = {
+
+        title unique: true, blank: false
+        content blank: false
+        numberOfVisits nullable: true
+        image nullable: true
     }
 }

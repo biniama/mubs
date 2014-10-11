@@ -1,4 +1,6 @@
-package com.kaufda.mubs.model
+package com.kaufda.mubs.controllers
+
+import com.kaufda.mubs.model.Blog
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional

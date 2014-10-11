@@ -25,7 +25,7 @@
             <sec:ifLoggedIn>
 
                 <div class="nav navbar-nav navbar-right">
-                    <a href="${createLink(uri: '/blog/newBlogPost')}" class="btn btn-success header-top-padding">New Blog Post</a>
+                    <a href="${createLink(uri: '/blogEntry/newBlogEntry')}" class="btn btn-success header-top-padding">New Blog Entry</a>
                 </div>
 
                 <div class="dropdown navbar-right header-top-padding">

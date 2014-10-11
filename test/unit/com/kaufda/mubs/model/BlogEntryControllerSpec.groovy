@@ -1,6 +1,6 @@
 package com.kaufda.mubs.model
 
-
+import com.kaufda.mubs.controllers.BlogEntryController
 import grails.test.mixin.*
 import spock.lang.*
 
