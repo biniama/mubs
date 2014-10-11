@@ -1,0 +1,31 @@
+/*Main menu text styles*/
+.navbar-inverse .navbar-nav li a {
+    padding: 0px 13px;
+    line-height: 50px;
+    text-shadow: none !important;
+    text-align: center;
+    border-right: 1px solid #2980b9;
+    border-left: 1px solid #2980b9;
+    position: relative;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.navbar-inverse .navbar-nav li a {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.navbar-inverse .navbar-nav li a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 12px;
+}

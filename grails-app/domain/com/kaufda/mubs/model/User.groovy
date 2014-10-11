@@ -32,7 +32,7 @@ class User extends AbstractDomain {
     // Gender of the Blogger
     GenderTypeEnum gender
 
-    // One User has One Blog (based on the specification
+    // One User has One Blog (based on the specification)
     Blog blog
 
 	static transients = ['springSecurityService']
@@ -41,10 +41,12 @@ class User extends AbstractDomain {
 		username blank: false, unique: true
 		password blank: false
 
-        firstName blank: false
-        lastName blank: false
-        blog nullable: false
-	}
+        firstName blank: true, nullable: true
+        lastName blank: true, nullable: true
+        email blank: true, nullable: true
+        gender nullable: true
+        blog nullable: true
+    }
 
 	static mapping = {
 		password column: '`password`'

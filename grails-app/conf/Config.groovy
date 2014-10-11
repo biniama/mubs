@@ -123,3 +123,7 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kaufda.mub
 grails.plugin.springsecurity.authority.className = 'com.kaufda.mubs.model.Role'
 grails.plugin.springsecurity.requestMap.className = 'com.kaufda.mubs.model.Requestmap'
 grails.plugin.springsecurity.securityConfigType = 'Requestmap'
+
+// Additional SpringSecurity Configurations
+// Enable logout without using HTTP method POST
+grails.plugin.springsecurity.logout.postOnly = false

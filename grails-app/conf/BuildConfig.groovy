@@ -76,6 +76,9 @@ grails.project.dependency.resolution = {
         // Spring Security Core plug-in for Grails
         compile ":spring-security-core:2.0-RC4"
 
+        // Bootstrap CSS for Grails
+        runtime ":twitter-bootstrap:3.2.0.2"
+
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
         //compile ":less-asset-pipeline:1.10.0"
