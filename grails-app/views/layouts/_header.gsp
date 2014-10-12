@@ -24,11 +24,11 @@
 
             <sec:ifLoggedIn>
 
-                <div class="nav navbar-nav navbar-right">
+                <div class="nav navbar-nav">
                     <a href="${createLink(uri: '/blogEntry/newBlogEntry')}" class="btn btn-success header-top-padding">New Blog Entry</a>
                 </div>
 
-                <div class="dropdown navbar-right header-top-padding">
+                <div class="nav navbar-nav navbar-right dropdown header-top-padding">
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
                         <sec:username/>
                         <span class="caret"></span>
