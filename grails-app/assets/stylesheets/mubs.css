@@ -18,14 +18,11 @@
 .navbar-inverse .navbar-nav li a {
     color: #ffffff;
     font-size: 14px;
-}
-
-.navbar-inverse .navbar-nav li a {
-    color: #fff;
-}
-
-.navbar-inverse .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
     line-height: 12px;
+}
+
+.dropdown-menu {
+    background-color: #2980b9;
 }

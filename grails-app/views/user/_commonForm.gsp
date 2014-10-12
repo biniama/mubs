@@ -75,3 +75,24 @@
         <g:passwordField class="form-control" name="confirmPassword" required="" value=""/>
     </div>
 </div>
+
+<hr />
+
+<div class="form-group">
+    <label for="blogName" class="col-sm-4 control-label">
+        <g:message code="blog.name.label" default="Blog Name" />
+        <span class="required-indicator">*</span>
+    </label>
+    <div class="col-sm-8">
+        <g:textField class="form-control" name="blogName" required="" value="${userInstance?.blog?.name}"/>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="blogDescription" class="col-sm-4 control-label">
+        <g:message code="blog.description.label" default="Blog Description" />
+    </label>
+    <div class="col-sm-8">
+        <g:textArea class="form-control" name="blogDescription" rows="10" value="${userInstance?.blog?.description}"/>
+    </div>
+</div>

@@ -31,7 +31,7 @@ class BlogService {
         if(!blogEntry.hasErrors()) {
 
             // Save the blogEntry to the current user's blog list
-            saveBlog(blogEntry)
+            saveBlogByBlogEntry(blogEntry)
 
             // At this point, everything is successfully saved
             return blogEntry
@@ -43,7 +43,7 @@ class BlogService {
         }
     }
 
-   Blog saveBlog(BlogEntry blogEntry) {
+   Blog saveBlogByBlogEntry(BlogEntry blogEntry) {
 
         User currentUser = springSecurityService.getCurrentUser()
 
@@ -78,6 +78,54 @@ class BlogService {
             // throw exception
             // error saving to blog
         }
+   }
+
+   Blog saveBlogByNameAndDescription(String blogName, String blogDescription) {
+
+        Blog blog = new Blog()
+
+        blog.name = blogName
+        blog.description = blogDescription
+
+        blog.save()
+
+        if(!blog.hasErrors()) {
+
+            return blog
+
+        } else {
+
+            // handle errors
+
+        }
+   }
+
+    /**
+     * Returns the list of all blog entries in reverse chronological order
+     * @return
+     */
+    List<BlogEntry> getAllBlogEntries() {
+
+        return BlogEntry.list(sort: 'lastUpdated', order: 'desc')
     }
 
+    BlogEntry updateBlogEntry(BlogEntry blogEntry, String blogTitle, String blogContent) {
+
+        blogEntry.title = blogTitle
+
+        blogEntry.content = blogContent
+
+        blogEntry.save()
+
+        if(!blogEntry.hasErrors()) {
+
+            // If saving the blog entry is successful
+            return blogEntry
+
+        } else {
+
+            // throw exception
+            // error saving blog entry
+        }
+    }
 }

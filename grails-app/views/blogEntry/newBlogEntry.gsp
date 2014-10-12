@@ -17,9 +17,29 @@
     <body>
         <div class="container">
             <div class="row">
+
                 <g:if test="${flash.message}">
-                    <div class="message" role="status">${flash.message}</div>
+                    <div class="alert alert-info alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>${flash.message}</strong>
+                    </div>
                 </g:if>
+
+                <g:hasErrors bean="${blogEntryInstance}">
+                    <ul class="errors" role="alert">
+                        <g:eachError bean="${blogEntryInstance}" var="error">
+                            <li
+                                <g:if test="${error in org.springframework.validation.FieldError}">
+                                    data-field-id="${error.field}"
+                                </g:if>>
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>${error}</strong>
+                                </div>
+                            </li>
+                        </g:eachError>
+                    </ul>
+                </g:hasErrors>
 
                 <div class="col-sm-10">
 
@@ -32,24 +52,7 @@
                         <g:form url="[resource:blogEntryInstance, action:'saveBlogEntry']" >
                             <div class="panel-body form-horizontal">
 
-                                <div class="form-group">
-                                    <label for="blogTitle" class="col-sm-4 control-label">
-                                        <g:message code="blog.title.label" default="Blog Title" />
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <g:textField class="form-control" name="blogTitle" value="${blogEntryInstance?.title}"/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="blogContent" class="col-sm-4 control-label">
-                                        <g:message code="blog.title.label" default="Blog Title" />
-                                    </label>
-                                    <div class="col-sm-8">
-                                        <g:textArea class="form-control" name="blogContent" rows="15"
-                                                    value="${blogEntryInstance?.content}"/>
-                                    </div>
-                                </div>
+                                <g:render template="commonForm"/>
 
                                 <div class="form-group">
                                     <div class="col-sm-12 text-right">

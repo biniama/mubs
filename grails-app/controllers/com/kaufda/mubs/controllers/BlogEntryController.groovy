@@ -22,17 +22,56 @@ class BlogEntryController {
 
         if(null != blogEntry) {
 
-            flash.message = message(code: 'user.saveUser.success.result')
+            flash.message = message(code: 'blog.save.success.result', default: 'Blog entry saved successfully.')
 
         } else {
 
-            flash.message = message(code: 'user.saveUser.failed.result', default: 'Error creating User')
+            flash.message = message(code: 'blog.save.failed.result', default: 'Error saving blog entry.')
         }
 
         // Go to home page
-        render (view: '/')
-
+        redirect controller: 'dashboard', action: 'index'
     }
+
+    def blogEntryDetail(BlogEntry blogEntryInstance) {
+
+        respond blogEntryInstance
+    }
+
+    def editBlogEntry(BlogEntry blogEntryInstance) {
+
+        respond blogEntryInstance
+    }
+
+    def updateBlogEntry(BlogEntry blogEntryInstance) {
+
+        if (blogEntryInstance == null) {
+            notFound()
+            return
+        }
+
+        if (blogEntryInstance.hasErrors()) {
+            respond blogEntryInstance.errors, view:'edit'
+            return
+        }
+
+        BlogEntry blogEntry = blogService.updateBlogEntry(blogEntryInstance, params.blogTitle, params.blogContent)
+
+        if(null != blogEntry) {
+
+            flash.message = message(code: 'blog.update.success.result', default: 'Blog entry updated successfully.')
+
+        } else {
+
+            flash.message = message(code: 'blog.update.failed.result', default: 'Error updating blog entry.')
+        }
+
+        // Go to home page
+        redirect controller: 'dashboard', action: 'index'
+    }
+
+
+
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -70,9 +109,6 @@ class BlogEntryController {
         }
     }
 
-    def edit(BlogEntry blogEntryInstance) {
-        respond blogEntryInstance
-    }
 
     @Transactional
     def update(BlogEntry blogEntryInstance) {

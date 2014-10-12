@@ -14,11 +14,15 @@
     <body>
         <div class="container">
             <div class="row">
-                <g:if test="${flash.message}">
-                    <div class="message" role="status">${flash.message}</div>
-                </g:if>
 
                 <div class="col-sm-6">
+
+                    <g:if test="${flash.message}">
+                        <div class="alert alert-info alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>${flash.message}</strong>
+                        </div>
+                    </g:if>
 
                     <div class="panel panel-default">
 
@@ -28,7 +32,7 @@
 
                         <g:form url="[resource:userInstance, action:'saveUser']" >
                             <div class="panel-body form-horizontal">
-                                <g:render template="common" />
+                                <g:render template="commonForm" />
 
                                 <div class="form-group">
                                     <div class="col-sm-12 text-right">

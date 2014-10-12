@@ -1,6 +1,7 @@
 package com.kaufda.mubs.services
 
 import com.kaufda.exceptions.UserServiceException
+import com.kaufda.mubs.model.Blog
 import com.kaufda.mubs.model.GenderTypeEnum
 import com.kaufda.mubs.model.User
 import grails.transaction.Transactional
@@ -12,8 +13,10 @@ class UserService {
 
     def springSecurityService
 
+    def blogService
+
     User saveUser(String firstName, String lastName, String email, String gender,
-                  String username, String password, String confirmPassword) {
+                  String username, String password, String confirmPassword, String blogName, String blogDescription) {
 
         if(!password.equals(confirmPassword)) {
 
@@ -24,7 +27,11 @@ class UserService {
             throw (new UserServiceException(errorMessage, UserServiceException.ERROR_PASSWORD_DOES_NOT_MATCH))
         }
 
-        if(isValid(firstName, lastName, email, gender, username, password, confirmPassword)) {
+        if(isValid(firstName, lastName, email, gender, username, password, confirmPassword, blogName, blogDescription)) {
+
+            // Save the Blog object first because it needs to be assigned to the new User object to be created
+
+            Blog blog = blogService.saveBlogByNameAndDescription(blogName, blogDescription)
 
             User user = new User()
 
@@ -34,6 +41,7 @@ class UserService {
             user.lastName = lastName
             user.email = email
             user.gender = GenderTypeEnum.valueOf(gender)
+            user.blog = blog
 
             user.save()
 
@@ -47,7 +55,10 @@ class UserService {
             } else {
 
                 // handle failure case
-                def errorMessage = messageSource.getMessage("error.user.cannot.be.created", null, "User cannot be created.", Locale.getDefault())
+                //String errorMessage = messageSource.getMessage("error.user.cannot.be.created", null, "User cannot be created.", Locale.getDefault())
+                //errorMessage.concat(user.getErrors().getFieldError())
+
+                String errorMessage = user.getErrors().getFieldError()
 
                 log.error(errorMessage)
 
@@ -107,6 +118,10 @@ class UserService {
 
     /**
      * Helper method
+     *
+     * Does not need to be in the interface since it is just a helper method used inside this class (that is why 'private' access modifier is added/given)
+     * and we do not want to expose it to clients of different forms
+     *
      * @param firstName
      * @param lastName
      * @param email
@@ -117,7 +132,7 @@ class UserService {
      * @return
      */
     private Boolean isValid(String firstName, String lastName, String email, String gender,
-                    String username, String password, String confirmPassword) {
+                    String username, String password, String confirmPassword, String blogName, String blogDescription) {
 
         if(null == username || username.isEmpty()) {
 

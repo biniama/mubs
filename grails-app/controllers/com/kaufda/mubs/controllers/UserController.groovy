@@ -17,20 +17,29 @@ class UserController {
 
     def saveUser() {
 
-        User user = userService.saveUser(params.firstName, params.lastName, params.email, params.gender,
-                params.username, params.password, params.confirmPassword)
+        try {
 
-        if(null != user) {
+            User user = userService.saveUser(params.firstName, params.lastName, params.email, params.gender,
+                    params.username, params.password, params.confirmPassword, params.blogName, params.blogDescription)
 
-            flash.message = message(code: 'user.saveUser.success.result')
+            if(!user.hasErrors()) {
 
-        } else {
+                flash.message = message(code: 'user.saveUser.success.result')
 
-            flash.message = message(code: 'user.saveUser.failed.result', default: 'Error creating User')
+                // Go to home page
+                redirect controller: 'dashboard', action: 'index'
+
+            } else {
+
+                flash.message = message(code: 'user.saveUser.failed.result', default: 'Error creating User') + user.getErrors()
+                render (view: 'signup')
+            }
+
+        } catch (Exception e) {
+
+            flash.message = e.getMessage()
+            render (view: 'signup')
         }
-
-        // Go to home page
-        render (view: '/')
     }
 
     def changePassword() {
@@ -52,8 +61,7 @@ class UserController {
         }
 
         // Go to home page
-        render (view: '/')
-
+        redirect controller: 'dashboard', action: 'index'
     }
 
     def index(Integer max) {

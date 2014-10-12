@@ -78,4 +78,16 @@ class User extends AbstractDomain {
     protected void encodePassword() {
 		password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
 	}
+
+    String toString() {
+
+        if(firstName && lastName){
+
+            return "${firstName} ${lastName}"
+
+        } else {
+
+            return username
+        }
+    }
 }
