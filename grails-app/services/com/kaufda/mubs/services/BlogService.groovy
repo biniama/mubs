@@ -90,26 +90,26 @@ class BlogService {
         }
 
         // Get the blog of the current user
-        Blog blogOfCurrentUser = currentUser.blog
+        Blog blogOfCurrentUser = currentUser?.blog
 
         // In case the user has no blog, create a new one using the default blog name
         if (null == blogOfCurrentUser)
-            blogOfCurrentUser = new Blog(name: Constants.DEFAULT_BLOG_NAME)
+            blogOfCurrentUser = new Blog(name: Constants.DEFAULT_BLOG_NAME, description: Constants.DEFAULT_BLOG_DESCRIPTION)
 
         // Add the blog entry passed to the blog of the user
         blogOfCurrentUser.addToBlogEntries(blogEntry)
 
         // Save the blog to the database
-        blogOfCurrentUser.save()
+        blogOfCurrentUser.save(flush: true)
 
         // If the blog is saved successfully
         if (!blogOfCurrentUser.hasErrors()) {
 
             // Save it to the user object
-            currentUser.blog = blogOfCurrentUser
+            currentUser?.blog = blogOfCurrentUser
 
             // Save the user to the database
-            currentUser.save()
+            currentUser.save(flush: true)
 
             // If user is successfully saved, return the user
             if(!currentUser.hasErrors()) {
@@ -155,7 +155,7 @@ class BlogService {
         blog.description = blogDescription
 
         // Save the blog to the database
-        blog.save()
+        blog.save(flush: true)
 
         // If saved successfully
         if(!blog.hasErrors()) {
@@ -229,7 +229,7 @@ class BlogService {
             }
 
             // from the user's blog
-            eq('blog', user.blog)
+            eq('blog', user?.blog)
         }
     }
 

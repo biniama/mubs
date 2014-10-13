@@ -58,7 +58,7 @@ class UserService {
 
             // Call the method that assigns the values passed from the view then to the controller to the new object
             // and saves the object to the database
-            user = saveUser(user, firstName, lastName, email, gender, username, password, blog)
+            user = saveUserInformation(user, firstName, lastName, email, gender, username, password, blog)
 
             // return the saved user object
             return user
@@ -86,7 +86,7 @@ class UserService {
         Blog blog = blogService.updateBlog(user.blog, blogName, blogDescription)
 
         // Saves the new changes
-        user = saveUser(user, firstName, lastName, email, gender, username, user.password, blog)
+        user = saveUserInformation(user, firstName, lastName, email, gender, username, user.password, blog)
 
         // return the updated usr object
         return user
@@ -107,7 +107,7 @@ class UserService {
      *
      * @return user
      */
-    User saveUser(User user, String firstName, String lastName, String email, String gender,
+    User saveUserInformation(User user, String firstName, String lastName, String email, String gender,
                   String username, String password, Blog blog) {
 
         user.username = username

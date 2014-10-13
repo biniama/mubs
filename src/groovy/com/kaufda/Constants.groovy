@@ -12,4 +12,6 @@ class Constants {
 	public static final String ROLE_BLOGGER = "ROLE_BLOGGER"
 
     public static final String DEFAULT_BLOG_NAME = "My Blog"
+
+    public static final String DEFAULT_BLOG_DESCRIPTION = "My Blog Description"
 }
