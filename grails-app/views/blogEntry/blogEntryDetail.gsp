@@ -41,6 +41,7 @@
                             <h1>Title: ${blogEntryInstance?.title}</h1>
                             <h4>Author: ${blogEntryInstance?.blog?.user?.toString()}</h4>
                             <h5>Date: ${blogEntryInstance?.dateCreated}</h5>
+                            <h5>Visited by: ${blogEntryInstance?.numberOfVisits} People.</h5>
                             <hr>
                             <h3>Blog: ${blogEntryInstance?.blog?.name}</h3>
                             <p>Description: ${blogEntryInstance?.blog?.description}</p>

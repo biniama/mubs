@@ -43,11 +43,14 @@ class UserService {
             user.gender = GenderTypeEnum.valueOf(gender)
             user.blog = blog
 
-            user.save()
-
+            try{
+                user.save()
+            } catch (Exception e) {
+                throw new Exception(e)
+            }
             // According to Burt Beckwith, rather than using failOnError:true, use the following
 
-            if(!user.hasErrors()) {
+           /* if(!user.hasErrors()) {
 
                 // handle success case
                 return user
@@ -58,12 +61,11 @@ class UserService {
                 //String errorMessage = messageSource.getMessage("error.user.cannot.be.created", null, "User cannot be created.", Locale.getDefault())
                 //errorMessage.concat(user.getErrors().getFieldError())
 
-                String errorMessage = user.getErrors().getFieldError()
-
+                String errorMessage = user.getErrors().getFieldError().toString()
                 log.error(errorMessage)
-
-                throw (new UserServiceException(errorMessage, UserServiceException.ERROR_USER_CANNOT_BE_CREATED))
-            }
+throw user.getErrors()
+                //throw (new UserServiceException(user.getErrors(), UserServiceException.ERROR_USER_CANNOT_BE_CREATED))
+            }*/
         }
 
     }

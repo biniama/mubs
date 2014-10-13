@@ -35,6 +35,10 @@ class BlogEntryController {
 
     def blogEntryDetail(BlogEntry blogEntryInstance) {
 
+        // Increment the number of people who visited this blog entry
+        blogEntryInstance.numberOfVisits = blogEntryInstance.numberOfVisits + 1
+        blogEntryInstance.save(flush: true)
+
         respond blogEntryInstance
     }
 
@@ -70,7 +74,21 @@ class BlogEntryController {
         redirect controller: 'dashboard', action: 'index'
     }
 
+    @Transactional
+    def delete(BlogEntry blogEntryInstance) {
 
+        if (blogEntryInstance == null) {
+            notFound()
+            return
+        }
+
+        blogEntryInstance.delete flush:true
+
+        flash.message = message(code: 'default.deleted.message', args: [message(code: 'blogEntry.label', default: 'Blog Entry'), blogEntryInstance.title])
+
+        // Go to home page
+        redirect controller: 'dashboard', action: 'index'
+    }
 
 
     def index(Integer max) {
@@ -130,25 +148,6 @@ class BlogEntryController {
                 redirect blogEntryInstance
             }
             '*'{ respond blogEntryInstance, [status: OK] }
-        }
-    }
-
-    @Transactional
-    def delete(BlogEntry blogEntryInstance) {
-
-        if (blogEntryInstance == null) {
-            notFound()
-            return
-        }
-
-        blogEntryInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'BlogEntry.label', default: 'BlogEntry'), blogEntryInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
         }
     }
 

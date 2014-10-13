@@ -77,7 +77,10 @@
                         <ul class="list-group">
                             <li class="list-group-item">
                             <span class="badge">${blogEntryInstance?.numberOfVisits}</span>
-                                ${blogEntryInstance?.blog?.name}
+
+                                <g:link controller="blogEntry" action="blogEntryDetail" id="${blogEntryInstance.id}" name="readDetail">
+                                    ${blogEntryInstance?.title}
+                                </g:link>
                             </li>
                         </ul>
                     </g:each>
