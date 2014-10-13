@@ -64,7 +64,7 @@
         <span class="required-indicator">*</span>
     </label>
     <div class="col-sm-8">
-        <g:passwordField class="form-control" name="password" required="" value="${userInstance?.password}"/>
+        <g:passwordField class="form-control" name="password" required="" value=""/>
     </div>
 </div>
 

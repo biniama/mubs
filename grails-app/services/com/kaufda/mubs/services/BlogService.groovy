@@ -109,23 +109,54 @@ class BlogService {
         return BlogEntry.list(sort: 'lastUpdated', order: 'desc')
     }
 
+    List<BlogEntry> getAllBlogEntriesByUserName(String username) {
+
+        User selectedUser = User.findByUsername(username)
+
+        if(null != selectedUser) {
+
+            return BlogEntry.createCriteria().list {
+
+                eq('blog', selectedUser?.blog)
+            }
+
+        } else {
+
+            return null
+        }
+    }
+
+    Integer getTotalNumberOfVisitsToAllBlogEntriesByUser(User user) {
+
+        return BlogEntry.createCriteria().get {
+
+            projections {
+                sum('numberOfVisits')
+            }
+
+            eq('blog', user.blog)
+        }
+    }
+
     BlogEntry updateBlogEntry(BlogEntry blogEntry, String blogTitle, String blogContent) {
 
         blogEntry.title = blogTitle
 
         blogEntry.content = blogContent
 
-        blogEntry.save()
+        blogEntry.save(flush: true)
 
-        if(!blogEntry.hasErrors()) {
+        return blogEntry
+    }
 
-            // If saving the blog entry is successful
-            return blogEntry
+    Blog updateBlog(Blog blog, String blogName, String blogDescription) {
 
-        } else {
+        blog.name = blogName
 
-            // throw exception
-            // error saving blog entry
-        }
+        blog.description = blogDescription
+
+        blog.save()
+
+        return blog
     }
 }

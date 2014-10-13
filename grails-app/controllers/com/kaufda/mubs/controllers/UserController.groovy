@@ -1,8 +1,7 @@
 package com.kaufda.mubs.controllers
 
+import com.kaufda.mubs.model.BlogEntry
 import com.kaufda.mubs.model.User
-
-import javax.xml.bind.ValidationException
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -11,7 +10,26 @@ class UserController {
 
     def userService
 
+    def blogService
+
+    def springSecurityService
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+
+    def getAllBlogEntriesByUserName() {
+
+        List<BlogEntry> blogEntries = blogService.getAllBlogEntriesByUserName(params.username)
+
+        if(null == blogEntries) {
+
+            flash.message = message(code: 'user.get.blog.entries.error.result', default: 'No blog entry found.')
+
+            // Go to home page
+            redirect controller: 'dashboard', action: 'index'
+        }
+
+        respond User.list(params), model: [blogEntriesInstanceList: blogEntries, blogEntriesCount: blogEntries?.size()], view: 'userBlogEntries'
+    }
 
     def signup() {
         render (view: 'signup')
@@ -19,7 +37,7 @@ class UserController {
 
     def saveUser() {
 
-        User user = userService.saveUser(params.firstName, params.lastName, params.email, params.gender,
+        User user = userService.saveUserInformation(params.firstName, params.lastName, params.email, params.gender,
                 params.username, params.password, params.confirmPassword, params.blogName, params.blogDescription)
 
         // According to Burt Beckwith, rather than using failOnError:true, use the following
@@ -31,7 +49,7 @@ class UserController {
         } else {
 
             // successfully saved
-            flash.message = message(code: 'user.saveUser.success.result')
+            flash.message = message(code: 'user.saveUser.success.result', default: 'User information saved successfully.')
 
             // Go to home page
             redirect controller: 'dashboard', action: 'index'
@@ -58,6 +76,52 @@ class UserController {
 
         // Go to home page
         redirect controller: 'dashboard', action: 'index'
+    }
+
+    def userProfile() {
+
+        User currentUser = springSecurityService.getCurrentUser()
+
+        Integer totalNumberOfVisitsToAllBlogEntries = blogService.getTotalNumberOfVisitsToAllBlogEntriesByUser(currentUser)
+
+        respond currentUser,  model:[totalNumberOfVisitsToAllBlogEntries: totalNumberOfVisitsToAllBlogEntries]
+    }
+
+    def editUserProfile(User userInstance) {
+
+        respond userInstance, view:'editUserProfile'
+        return
+    }
+
+    def updateUserProfile(User userInstance) {
+
+        if (userInstance == null) {
+            notFound()
+            return
+        }
+
+        if (userInstance.hasErrors()) {
+            respond userInstance.errors, view:'edit'
+            return
+        }
+
+        User user = userService.updateUserInformation(userInstance, params.firstName, params.lastName, params.email, params.gender,
+                params.username, params.blogName, params.blogDescription)
+
+        // According to Burt Beckwith, rather than using failOnError:true, use the following
+        if (null != user && user.hasErrors()) {
+
+            respond userInstance.errors, view:'edit'
+            return
+
+        } else {
+
+            // successfully saved
+            flash.message = message(code: 'user.update.success.result', default: 'User information updated successfully.')
+
+            // Go to home page
+            redirect controller: 'dashboard', action: 'index'
+        }
     }
 
     def index(Integer max) {

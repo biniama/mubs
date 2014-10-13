@@ -6,8 +6,6 @@ import com.kaufda.mubs.model.GenderTypeEnum
 import com.kaufda.mubs.model.User
 import grails.transaction.Transactional
 
-import javax.xml.bind.ValidationException
-
 @Transactional
 class UserService {
 
@@ -17,8 +15,55 @@ class UserService {
 
     def blogService
 
-    User saveUser(String firstName, String lastName, String email, String gender,
+    User saveUserInformation(String firstName, String lastName, String email, String gender,
                   String username, String password, String confirmPassword, String blogName, String blogDescription) {
+
+        if(isPasswordConfirmed(password, confirmPassword)) {
+
+            if (isValid(firstName, lastName, email, gender, username, password, confirmPassword, blogName, blogDescription)) {
+
+                // Save the Blog object first because it needs to be assigned to the new User object to be created
+
+                Blog blog = blogService.saveBlogByNameAndDescription(blogName, blogDescription)
+
+                User user = new User()
+
+                user = saveUser(user, firstName, lastName, email, gender, username, password, blog)
+
+                return user
+            }
+        }
+    }
+
+    User updateUserInformation(User user, String firstName, String lastName, String email, String gender,
+                               String username, String blogName, String blogDescription) {
+
+        // Save the Blog object first because it needs to be assigned to the new User object to be created
+
+        Blog blog = blogService.updateBlog(user.blog, blogName, blogDescription)
+
+        user = saveUser(user, firstName, lastName, email, gender, username, user.password, blog)
+
+        return user
+    }
+
+    User saveUser(User user, String firstName, String lastName, String email, String gender,
+                  String username, String password, Blog blog) {
+
+        user.username = username
+        user.password = password
+        user.firstName = firstName
+        user.lastName = lastName
+        user.email = email
+        user.gender = GenderTypeEnum.valueOf(gender)
+        user.blog = blog
+
+        user.save(flush: true)
+
+        return user
+    }
+
+    Boolean isPasswordConfirmed(String password, String confirmPassword) {
 
         if(!password.equals(confirmPassword)) {
 
@@ -27,26 +72,6 @@ class UserService {
             log.error(errorMessage)
 
             throw (new UserServiceException(errorMessage, UserServiceException.ERROR_PASSWORD_DOES_NOT_MATCH))
-        }
-
-        if(isValid(firstName, lastName, email, gender, username, password, confirmPassword, blogName, blogDescription)) {
-
-            // Save the Blog object first because it needs to be assigned to the new User object to be created
-
-            Blog blog = blogService.saveBlogByNameAndDescription(blogName, blogDescription)
-
-            User user = new User()
-
-            user.username = username
-            user.password = password
-            user.firstName = firstName
-            user.lastName = lastName
-            user.email = email
-            user.gender = GenderTypeEnum.valueOf(gender)
-            user.blog = blog
-
-            user.save(flush: true)
-            return user
         }
     }
 

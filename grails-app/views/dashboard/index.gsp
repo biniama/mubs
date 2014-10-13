@@ -16,7 +16,7 @@
                     <h1><g:message code="blog.posts.label" default="All Blog Posts" /></h1>
 
                     <g:if test="${blogEntriesCount > 0}">
-                        <h6>Enjoy our ${blogEntriesCount} blog entries!</h6>
+                        <h4>Enjoy our ${blogEntriesCount} blog entries!</h4>
                     </g:if>
                     <g:else>
                         <h6>We have no blog entries now. Please come back some other time. Thank you.</h6>
@@ -72,6 +72,8 @@
                 </div>
 
                 <div class="col-md-4">
+
+                    <h2><g:message code="blog.list.entries.label" default="List of Blog Entries" /></h2>
 
                     <g:each in="${blogEntriesInstanceList}" status="i" var="blogEntryInstance">
                         <ul class="list-group">

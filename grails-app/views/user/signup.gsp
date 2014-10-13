@@ -30,7 +30,7 @@
                                 <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>>
                                     <div class="alert alert-info alert-dismissable">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <g:message error="${error}"/>
+                                        <g:message code="default.unique.message" args="${error.arguments}"/>
                                     </div>
                                 </li>
                             </g:eachError>
@@ -45,7 +45,7 @@
 
                         <g:form url="[resource:userInstance, action:'saveUser']" >
                             <div class="panel-body form-horizontal">
-                                <g:render template="commonForm" />
+                                <g:render template="signupForm" />
 
                                 <div class="form-group">
                                     <div class="col-sm-12 text-right">

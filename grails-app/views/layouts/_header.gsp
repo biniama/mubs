@@ -28,12 +28,20 @@
                     <a href="${createLink(uri: '/blogEntry/newBlogEntry')}" class="btn btn-success header-top-padding">New Blog Entry</a>
                 </div>
 
-                <div class="nav navbar-nav navbar-right dropdown header-top-padding">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                <div class="nav navbar-nav navbar-right dropdown header-top-padding btn-group">
+
+                    <!-- Split button -->
+                    %{--<g:link class="btn btn-default" role="menuitem" controller="user" action="userProfile" resource="${userInstance}"><sec:username/></g:link>--}%
+
+                    %{--<button type="button" class="btn btn-default"><sec:username/></button>--}%
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <sec:username/>
                         <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink(uri: '/user/userProfile')}">Profile</a></li>
+                        <li role="presentation" class="divider"></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink(uri: '/user/changePassword')}">Change Password</a></li>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="${createLink(uri: '/logout/index')}">Log Out</a></li>

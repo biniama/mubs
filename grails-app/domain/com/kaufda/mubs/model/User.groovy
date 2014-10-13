@@ -43,7 +43,7 @@ class User extends AbstractDomain {
 
         firstName blank: true, nullable: true
         lastName blank: true, nullable: true
-        email blank: true, nullable: true
+        email blank: true, nullable: true, email: true
         gender nullable: true
         blog nullable: true
     }

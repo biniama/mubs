@@ -20,17 +20,19 @@ class BlogEntryController {
 
         BlogEntry blogEntry = blogService.saveBlogEntry(params.blogTitle, params.blogContent)
 
-        if(null != blogEntry) {
+        // According to Burt Beckwith, rather than using failOnError:true, use the following
+        if (blogEntry.hasErrors()) {
 
-            flash.message = message(code: 'blog.save.success.result', default: 'Blog entry saved successfully.')
+            respond blogEntry.errors, view:'newBlogEntry'
+            return
 
         } else {
 
-            flash.message = message(code: 'blog.save.failed.result', default: 'Error saving blog entry.')
-        }
+            flash.message = message(code: 'blog.save.success.result', default: 'Blog entry saved successfully.')
 
-        // Go to home page
-        redirect controller: 'dashboard', action: 'index'
+            // Go to home page
+            redirect controller: 'dashboard', action: 'index'
+        }
     }
 
     def blogEntryDetail(BlogEntry blogEntryInstance) {
@@ -61,17 +63,19 @@ class BlogEntryController {
 
         BlogEntry blogEntry = blogService.updateBlogEntry(blogEntryInstance, params.blogTitle, params.blogContent)
 
-        if(null != blogEntry) {
+        // According to Burt Beckwith, rather than using failOnError:true, use the following
+        if (blogEntry.hasErrors()) {
 
-            flash.message = message(code: 'blog.update.success.result', default: 'Blog entry updated successfully.')
+            respond blogEntry.errors, view:'newBlogEntry'
+            return
 
         } else {
 
-            flash.message = message(code: 'blog.update.failed.result', default: 'Error updating blog entry.')
-        }
+            flash.message = message(code: 'blog.update.success.result', default: 'Blog entry updated successfully.')
 
-        // Go to home page
-        redirect controller: 'dashboard', action: 'index'
+            // Go to home page
+            redirect controller: 'dashboard', action: 'index'
+        }
     }
 
     @Transactional

@@ -20,7 +20,6 @@ class Blog extends AbstractDomain {
 
         name unique: true
 
-        // set the constraint for a String field so that its MySQL column type is TEXT
         description blank: true
 
         blogEntries nullable: true

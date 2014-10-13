@@ -28,13 +28,21 @@ class BootStrap {
         }
 
         // Permit All
+
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/user/signup', 'permitAll').save()
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user*//**', 'permitAll').save()
 
         //TBD
         Requestmap.findOrSaveByUrlAndConfigAttribute('/blog*//**', 'permitAll').save()
 
         // Permitted to Logged In Users Only
-        //Requestmap.findOrSaveByUrlAndConfigAttribute('/blog//**', 'isFullyAuthenticated(), ROLE_BLOGGER').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/user/changePassword', 'isFullyAuthenticated()').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/user/changePasswordConfirm', 'isFullyAuthenticated()').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/user/userProfile', 'isFullyAuthenticated()').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/user/editUserProfile/**', 'isFullyAuthenticated()').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/user/updateUserProfile/**', 'isFullyAuthenticated()').save()
+
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/newBlogEntry', 'isFullyAuthenticated()').save()
 
         print("Finished initializing Bootstrap (Spring Security Configurations and Test Data).")
     }
