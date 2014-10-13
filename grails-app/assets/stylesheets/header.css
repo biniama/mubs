@@ -1,0 +1,47 @@
+.navbar {
+    min-width: 960px !important;
+    margin-bottom: 0 !important;
+    border-bottom: 0px solid #fff;
+    background: #2980b9;
+    height: 50px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.navbar-brand {
+    padding: 10px 15px;
+}
+
+/*Logo Image*/
+.logo {
+    width: 120px;
+    height: 30px;
+}
+
+/*Sign In and Create Account Buttons at the header*/
+.header-top-padding {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+/*Put the Elements at the Center of the Screen*/
+.centered {
+    position: fixed;
+    top: 50%;
+    /*transform: translate(-50%, -50%) !important;*/
+}
+
+/*Sign In modal*/
+.modal-dialog {
+    width: 400px;
+    margin: 30px auto;
+}
+
+/*Sign In form inside the modal*/
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}

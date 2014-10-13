@@ -1,32 +1,31 @@
 package com.kaufda.mubs.model
 
-/**
- * Created by biniam on 10/11/2014.
- */
-
-/**
-    All models or domains extend from AbstractDomain inorder to use
-    the common properties such as Auditing Fields.
-*/
 class Blog extends AbstractDomain {
 
-    // Title of the blog
-    String title
+    String name
 
-    // Content of the blog
-    String content
+    String description
 
-    // Number of people who this blog in detail view
-    Integer numberOfVisits
+    static belongsTo = [user: User]
 
-    // Image attached to the blog
-    /*
-    The image will be stored in the database for simple access
-    but the best way to store it is in a file based system and
-    store the file location and filename in the database.
-    */
-    byte[] image
+    static hasMany = [blogEntries : BlogEntry]
+
+    static mapping = {
+
+        // set the constraint for a String field so that its MySQL column type is TEXT
+        description type: 'text'
+    }
 
     static constraints = {
+
+        name unique: true
+
+        description blank: true
+
+        blogEntries nullable: true
+
+        /* To avoid the overhead of Grails forcing us to create a User instance
+        every time we create a Blog object */
+        user nullable: true
     }
 }

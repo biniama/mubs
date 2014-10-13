@@ -1,4 +1,4 @@
-package com.kaufda.mubs.model;
+package com.kaufda.mubs.model
 
 /**
  * Created by biniam on 10/11/2014.
