@@ -8,7 +8,7 @@
             </button>
 
             <a class="navbar-brand" href="${createLink(uri: '/')}">
-                <img src="${assetPath(src: 'mubs.png')}" class="logo" alt="Mubs">
+                <img src="${assetPath(src: 'mubs_logo.png')}" class="logo" alt="Mubs">
             </a>
         </div>
 

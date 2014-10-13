@@ -4,7 +4,7 @@ package com.kaufda.exceptions
  * Created by biniam on 10/11/2014.
  */
 /**
-    A custom exception method is defined which extends RuntimeException
+    A custom exception class is defined which extends RuntimeException
 */
 class BlogServiceException extends ServiceException {
 

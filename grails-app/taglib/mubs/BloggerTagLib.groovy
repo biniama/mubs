@@ -1,5 +1,9 @@
 package mubs
 
+/**
+ * A custom tag lib which is used to check who can access which blog entries
+ * and do editing and deleting.
+ */
 class BloggerTagLib {
 
     def springSecurityService

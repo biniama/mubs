@@ -5,17 +5,31 @@ import com.kaufda.mubs.model.BlogEntry
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-class BlogEntryController {
+/**
+ * What this controller does is it accepts request from the view layer and calls the service layer
+ *
+ * This controller extends AbstractController where common methods to all controllers is defined
+ */
+class BlogEntryController extends AbstractController {
 
+    // Service class injection
     def blogService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    /**
+     * renders a view
+     * @return
+     */
     def newBlogEntry() {
 
         render (view: 'newBlogEntry')
     }
 
+    /**
+     * Calls the save blog method from the service and handles errors
+     * @return
+     */
     def saveBlogEntry() {
 
         BlogEntry blogEntry = blogService.saveBlogEntry(params.blogTitle, params.blogContent)
@@ -30,25 +44,44 @@ class BlogEntryController {
 
             flash.message = message(code: 'blog.save.success.result', default: 'Blog entry saved successfully.')
 
-            // Go to home page
-            redirect controller: 'dashboard', action: 'index'
+            // Call the method from AbstractController
+            goToHomePage()
         }
     }
 
+    /**
+     * Increment the number of people who visited this blog entry
+     * Redirects to detail view of selected blog entry
+     *
+     * @param blogEntryInstance
+     * @return
+     */
     def blogEntryDetail(BlogEntry blogEntryInstance) {
 
-        // Increment the number of people who visited this blog entry
+        // Increment the number of people who visited this blog entry by One
         blogEntryInstance.numberOfVisits = blogEntryInstance.numberOfVisits + 1
+
         blogEntryInstance.save(flush: true)
 
         respond blogEntryInstance
     }
 
+    /**
+     * Redirects to edit blog entry view
+     *
+     * @param blogEntryInstance
+     * @return
+     */
     def editBlogEntry(BlogEntry blogEntryInstance) {
 
         respond blogEntryInstance
     }
 
+    /**
+     * Does some validation, Calls update blog entry method from the sercice and handles errors
+     * @param blogEntryInstance
+     * @return
+     */
     def updateBlogEntry(BlogEntry blogEntryInstance) {
 
         if (blogEntryInstance == null) {
@@ -74,10 +107,16 @@ class BlogEntryController {
             flash.message = message(code: 'blog.update.success.result', default: 'Blog entry updated successfully.')
 
             // Go to home page
-            redirect controller: 'dashboard', action: 'index'
+            goToHomePage()
         }
     }
 
+    /**
+     * Deletes the selected blog entry after confirmation dialog is displayed
+     *
+     * @param blogEntryInstance
+     * @return
+     */
     @Transactional
     def delete(BlogEntry blogEntryInstance) {
 
@@ -91,77 +130,6 @@ class BlogEntryController {
         flash.message = message(code: 'default.deleted.message', args: [message(code: 'blogEntry.label', default: 'Blog Entry'), blogEntryInstance.title])
 
         // Go to home page
-        redirect controller: 'dashboard', action: 'index'
-    }
-
-
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond BlogEntry.list(params), model:[blogEntryInstanceCount: BlogEntry.count()]
-    }
-
-    def show(BlogEntry blogEntryInstance) {
-        respond blogEntryInstance
-    }
-
-    def create() {
-        respond new BlogEntry(params)
-    }
-
-    @Transactional
-    def save(BlogEntry blogEntryInstance) {
-        if (blogEntryInstance == null) {
-            notFound()
-            return
-        }
-
-        if (blogEntryInstance.hasErrors()) {
-            respond blogEntryInstance.errors, view:'create'
-            return
-        }
-
-        blogEntryInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'blogEntry.label', default: 'BlogEntry'), blogEntryInstance.id])
-                redirect blogEntryInstance
-            }
-            '*' { respond blogEntryInstance, [status: CREATED] }
-        }
-    }
-
-
-    @Transactional
-    def update(BlogEntry blogEntryInstance) {
-        if (blogEntryInstance == null) {
-            notFound()
-            return
-        }
-
-        if (blogEntryInstance.hasErrors()) {
-            respond blogEntryInstance.errors, view:'edit'
-            return
-        }
-
-        blogEntryInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'BlogEntry.label', default: 'BlogEntry'), blogEntryInstance.id])
-                redirect blogEntryInstance
-            }
-            '*'{ respond blogEntryInstance, [status: OK] }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'blogEntry.label', default: 'BlogEntry'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
+        goToHomePage()
     }
 }
