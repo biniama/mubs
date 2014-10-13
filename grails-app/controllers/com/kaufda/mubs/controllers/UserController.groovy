@@ -2,6 +2,8 @@ package com.kaufda.mubs.controllers
 
 import com.kaufda.mubs.model.User
 
+import javax.xml.bind.ValidationException
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -17,28 +19,22 @@ class UserController {
 
     def saveUser() {
 
-        try {
+        User user = userService.saveUser(params.firstName, params.lastName, params.email, params.gender,
+                params.username, params.password, params.confirmPassword, params.blogName, params.blogDescription)
 
-            User user = userService.saveUser(params.firstName, params.lastName, params.email, params.gender,
-                    params.username, params.password, params.confirmPassword, params.blogName, params.blogDescription)
+        // According to Burt Beckwith, rather than using failOnError:true, use the following
+        if (user.hasErrors()) {
 
-            if(!user.hasErrors()) {
+            respond user.errors, view:'signup'
+            return
 
-                flash.message = message(code: 'user.saveUser.success.result')
+        } else {
 
-                // Go to home page
-                redirect controller: 'dashboard', action: 'index'
+            // successfully saved
+            flash.message = message(code: 'user.saveUser.success.result')
 
-            } else {
-
-                flash.message = message(code: 'user.saveUser.failed.result', default: 'Error creating User') + user.getErrors()
-                render (view: 'signup')
-            }
-
-        } catch (Exception e) {
-
-            flash.message = e.getMessage()
-            render (view: 'signup')
+            // Go to home page
+            redirect controller: 'dashboard', action: 'index'
         }
     }
 

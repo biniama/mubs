@@ -10,18 +10,20 @@
 <div class="form-group">
     <label for="firstName" class="col-sm-4 control-label">
         <g:message code="user.firstName.label" default="First Name" />
+        <span class="required-indicator">*</span>
     </label>
     <div class="col-sm-8">
-        <g:textField class="form-control" name="firstName" value="${userInstance?.firstName}"/>
+        <g:textField class="form-control" name="firstName" required="" value="${userInstance?.firstName}"/>
     </div>
 </div>
 
 <div class="form-group">
     <label for="lastName" class="col-sm-4 control-label">
         <g:message code="user.lastName.label" default="Last Name" />
+        <span class="required-indicator">*</span>
     </label>
     <div class="col-sm-8">
-        <g:textField class="form-control" name="lastName" value="${userInstance?.lastName}"/>
+        <g:textField class="form-control" name="lastName" required="" value="${userInstance?.lastName}"/>
     </div>
 </div>
 
@@ -42,7 +44,7 @@
         <g:select class="form-control" name="gender" from="${com.kaufda.mubs.model.GenderTypeEnum?.values()}"
                   keys="${com.kaufda.mubs.model.GenderTypeEnum?.values()}"
                   value="${userInstance?.gender?.name().toString()}"
-                  noSelection="['': '--Choose--']" valueMessagePrefix="gender"/>
+                  noSelection="['': '']" valueMessagePrefix="gender"/>
     </div>
 </div>
 

@@ -6,6 +6,8 @@ import com.kaufda.mubs.model.GenderTypeEnum
 import com.kaufda.mubs.model.User
 import grails.transaction.Transactional
 
+import javax.xml.bind.ValidationException
+
 @Transactional
 class UserService {
 
@@ -43,31 +45,9 @@ class UserService {
             user.gender = GenderTypeEnum.valueOf(gender)
             user.blog = blog
 
-            try{
-                user.save()
-            } catch (Exception e) {
-                throw new Exception(e)
-            }
-            // According to Burt Beckwith, rather than using failOnError:true, use the following
-
-           /* if(!user.hasErrors()) {
-
-                // handle success case
-                return user
-
-            } else {
-
-                // handle failure case
-                //String errorMessage = messageSource.getMessage("error.user.cannot.be.created", null, "User cannot be created.", Locale.getDefault())
-                //errorMessage.concat(user.getErrors().getFieldError())
-
-                String errorMessage = user.getErrors().getFieldError().toString()
-                log.error(errorMessage)
-throw user.getErrors()
-                //throw (new UserServiceException(user.getErrors(), UserServiceException.ERROR_USER_CANNOT_BE_CREATED))
-            }*/
+            user.save(flush: true)
+            return user
         }
-
     }
 
     Boolean changePassword(String oldPassword, String newPassword, String confirmNewPassword) {

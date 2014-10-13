@@ -51,14 +51,21 @@
                                 ${blogEntryInstance?.content}
                             </p>
 
+                            %{--
+                                Using a custom TagLib I created, I check whether the logged in user is the one who created this blog entry (is owner).
+                                If owner, show edit and delete buttons
+                                Else do not show buttons.
+                            --}%
                             <sec:ifLoggedIn>
-                                <g:form url="[resource:blogEntryInstance, action:'delete']" method="DELETE">
-                                    <hr>
-                                    <div>
-                                        <g:link class="btn btn-warning" action="editBlogEntry" resource="${blogEntryInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                                        <g:actionSubmit class="btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                                    </div>
-                                </g:form>
+                                <g:isOwner owner="${blogEntryInstance?.blog?.user}">
+                                    <g:form url="[resource:blogEntryInstance, action:'delete']" method="DELETE">
+                                        <hr>
+                                        <div>
+                                            <g:link class="btn btn-warning" action="editBlogEntry" resource="${blogEntryInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                                            <g:actionSubmit class="btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                        </div>
+                                    </g:form>
+                                </g:isOwner>
                             </sec:ifLoggedIn>
                         </div>
                     </div>
