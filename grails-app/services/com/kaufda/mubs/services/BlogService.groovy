@@ -23,12 +23,16 @@ class BlogService {
     /**
      * Saves a blog entry and assigns it to a blog object
      *
+     * User param is added to make the method more general and applicable
+     * to multiple scenarios such as the one called from Bootstrap.groovy at startup
+     *
      * @param blogTitle
      * @param blogContent
+     * @param user
      *
      * @return blogEntry
      */
-    BlogEntry saveBlogEntry(String blogTitle, String blogContent) {
+    BlogEntry saveBlogEntry(String blogTitle, String blogContent, User user) {
 
         /*
             Steps to save a blog entry
@@ -52,7 +56,7 @@ class BlogService {
         if(!blogEntry.hasErrors()) {
 
             // Save the blogEntry to the current user's blog list
-            saveBlogByBlogEntry(blogEntry)
+            saveBlogByBlogEntry(blogEntry, user)
 
             // At this point, everything is successfully saved
             // Hence, return the object
@@ -76,10 +80,14 @@ class BlogService {
      *
      * @return blog
      */
-   Blog saveBlogByBlogEntry(BlogEntry blogEntry) {
+   Blog saveBlogByBlogEntry(BlogEntry blogEntry, User currentUser) {
 
-        // Get the current logged in user from spring security service
-        User currentUser = springSecurityService.getCurrentUser()
+        // If currentUser object is null, get the user from spring security
+        if(null == currentUser) {
+
+            // Get the current logged in user from spring security service
+            currentUser = springSecurityService.getCurrentUser()
+        }
 
         // Get the blog of the current user
         Blog blogOfCurrentUser = currentUser.blog

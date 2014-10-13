@@ -32,7 +32,7 @@ class BlogEntryController extends AbstractController {
      */
     def saveBlogEntry() {
 
-        BlogEntry blogEntry = blogService.saveBlogEntry(params.blogTitle, params.blogContent)
+        BlogEntry blogEntry = blogService.saveBlogEntry(params.blogTitle, params.blogContent, null /* user */)
 
         // According to Burt Beckwith, rather than using failOnError:true, use the following
         if (blogEntry.hasErrors()) {
