@@ -117,8 +117,9 @@ class UserService {
         user.email = email
 
         // If gender is null, then assign null
+        // If gender is empty, then assign null
         // Otherwise, get the GenderType enumeration and assign it to the user object
-        user.gender = gender ==  null ? null : GenderTypeEnum.valueOf(gender)
+        user.gender = gender ==  null ? null : gender.isEmpty() ? null : GenderTypeEnum.valueOf(gender)
         user.blog = blog
 
         // Saves the object to the database

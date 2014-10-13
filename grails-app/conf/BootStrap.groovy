@@ -25,33 +25,37 @@ class BootStrap {
 
         // Permit All
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user/signup', 'permitAll').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/user/saveUser', 'permitAll').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/user/getAllBlogEntriesByUserName', 'permitAll').save()
 
-        Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/blogEntryDetail', 'permitAll').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/blogEntryDetail/**', 'permitAll').save()
+
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/dashboard/**', 'permitAll').save()
+
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/blog/**', 'permitAll').save()
 
         // Permitted to Logged In Users Only
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user/changePassword', 'isFullyAuthenticated()').save()
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user/changePasswordConfirm', 'isFullyAuthenticated()').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/user/delete/**', 'isFullyAuthenticated()').save()
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user/userProfile', 'isFullyAuthenticated()').save()
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user/editUserProfile/**', 'isFullyAuthenticated()').save()
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user/updateUserProfile/**', 'isFullyAuthenticated()').save()
 
         Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/newBlogEntry', 'isFullyAuthenticated()').save()
-        Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/delete', 'isFullyAuthenticated()').save()
-        Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/updateBlogEntry', 'isFullyAuthenticated()').save()
-        Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/editBlogEntry', 'isFullyAuthenticated()').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/delete/**', 'isFullyAuthenticated()').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/updateBlogEntry/**', 'isFullyAuthenticated()').save()
+        Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/editBlogEntry/**', 'isFullyAuthenticated()').save()
         Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/saveBlogEntry', 'isFullyAuthenticated()').save()
 
-
-
         //TBD
-        Requestmap.findOrSaveByUrlAndConfigAttribute('/blog*//**', 'permitAll').save()
-
-        Requestmap.findOrSaveByUrlAndConfigAttribute('/user*//**', 'permitAll').save()
+        //Requestmap.findOrSaveByUrlAndConfigAttribute('/blog*//**', 'permitAll').save()
+        //Requestmap.findOrSaveByUrlAndConfigAttribute('/user*//**', 'permitAll').save()
 
         //************************************************************************************************************
 
-
-        // Signup user: 'timmeyerdierks'
+        print("Test data generation in progress ...")
+        // Signup user: 'tim.meyerdierks'
 
         User bloggerUser = User.findByUsername('tim.meyerdierks')
 
@@ -71,15 +75,14 @@ class BootStrap {
         UserRole.findOrSaveByUserAndRole(bloggerUser, bloggerRole).save(flush:  true)
 
 
-        // Add a New Entry, Title: '10 Reasons To Work at KaudDA'
-        if(!BlogEntry.findByTitle('10 Reasons To Work at KaudDA')) {
+        // Add a New Entry, Title: '10 Reasons To Work at KaufDA'
+        if(!BlogEntry.findByTitle('10 Reasons To Work at KaufDA')) {
 
-            String blogTitle = "10 Reasons To Work at KaudDA"
+            String blogTitle = "10 Reasons To Work at KaufDA"
 
-            String blogContent = """
-            We Think BIG\n
-                We have big, ambitious goals, and our team has a singular focus
-                on achieving them.\n
+            String blogContent =
+            """We Think BIG\n
+                We have big, ambitious goals, and our team has a singular focus on achieving them.\n
 
             Combining the best of the Old School with the innovation of the New School\n
                 kaufDA links offline shopping with online technology, and our team
@@ -150,9 +153,9 @@ class BootStrap {
 
             String blogTitle = "Grails - Introduction"
 
-            String blogContent = """
-            Grails is a full stack framework and attempts to solve as many pieces of the web development puzzle
-            through the core technology and its associated plugins. Included out the box are things like:\n
+            String blogContent =
+                """Grails is a full stack framework and attempts to solve as many pieces of the web development puzzle
+                through the core technology and its associated plugins. Included out the box are things like:\n
 
                 An easy to use Object Relational Mapping (ORM) layer built on Hibernate\n
                 An expressive view technology called Groovy Server Pages (GSP)\n
@@ -167,7 +170,6 @@ class BootStrap {
             // Calling the generalized saveBlogEntry method in BlogService
             blogService.saveBlogEntry(blogTitle, blogContent, bloggerUserBiniamAsnake)
         }
-
 
         print("Finished initializing Bootstrap (Spring Security Configurations and Test Data).")
     }

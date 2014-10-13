@@ -718,6 +718,96 @@
       <column name="CHARACTER_SET_CLIENT" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="COLLATION_CONNECTION" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
     </table>
+    <table name="blog" schema="" catalog="mubs" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_oykfhuf9axbb49brs8hs2v797" table="blog_entry" schema="" catalog="mubs" columns="blog_id"/>
+      <exported-key name="FK_knw7jj62ahqqvfahtxae0k4i1" table="user" schema="" catalog="mubs" columns="blog_id"/>
+      <index name="UK_ejuewnv3u8r30wjhf8bwju8au" unique="true" columns="name"/>
+    </table>
+    <table name="blog_entry" schema="" catalog="mubs" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="blog_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="content" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="created_by_user_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="image" sqlType="TINYBLOB" precision="255" scale="0" nullable="true" jdbcType="-2"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="number_of_visits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="updated_by_user_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_q7bs0d06qnvak3k4lbysafr22" columns="updated_by_user_id" ref-table="user" ref-schema="" ref-catalog="mubs" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_bi5g7dm1jlljn52tm2nae8kfb" columns="created_by_user_id" ref-table="user" ref-schema="" ref-catalog="mubs" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_oykfhuf9axbb49brs8hs2v797" columns="blog_id" ref-table="blog" ref-schema="" ref-catalog="mubs" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="UK_k1audjs41fiwg8jv71kdpxmxo" unique="true" columns="title"/>
+      <index name="FK_bi5g7dm1jlljn52tm2nae8kfb" unique="false" columns="created_by_user_id"/>
+      <index name="FK_oykfhuf9axbb49brs8hs2v797" unique="false" columns="blog_id"/>
+      <index name="FK_q7bs0d06qnvak3k4lbysafr22" unique="false" columns="updated_by_user_id"/>
+    </table>
+    <table name="requestmap" schema="" catalog="mubs" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="config_attribute" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="http_method" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="url" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_url" unique="true" columns="http_method,url"/>
+    </table>
+    <table name="role" schema="" catalog="mubs" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="authority" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_it77eq964jhfqtu54081ebtio" table="user_role" schema="" catalog="mubs" columns="role_id"/>
+      <index name="UK_irsamgnera6angm0prq1kemt2" unique="true" columns="authority"/>
+    </table>
+    <table name="user" schema="" catalog="mubs" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="account_expired" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="account_locked" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="blog_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="created_by_user_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="enabled" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="first_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gender" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password_expired" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="updated_by_user_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="username" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_k27nf5g4aplrr8y1wcnud52x0" columns="updated_by_user_id" ref-table="user" ref-schema="" ref-catalog="mubs" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_h9ubqttmjqbwj97eywud0ot9e" columns="created_by_user_id" ref-table="user" ref-schema="" ref-catalog="mubs" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_knw7jj62ahqqvfahtxae0k4i1" columns="blog_id" ref-table="blog" ref-schema="" ref-catalog="mubs" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_q7bs0d06qnvak3k4lbysafr22" table="blog_entry" schema="" catalog="mubs" columns="updated_by_user_id"/>
+      <exported-key name="FK_bi5g7dm1jlljn52tm2nae8kfb" table="blog_entry" schema="" catalog="mubs" columns="created_by_user_id"/>
+      <exported-key name="FK_k27nf5g4aplrr8y1wcnud52x0" table="user" schema="" catalog="mubs" columns="updated_by_user_id"/>
+      <exported-key name="FK_h9ubqttmjqbwj97eywud0ot9e" table="user" schema="" catalog="mubs" columns="created_by_user_id"/>
+      <exported-key name="FK_apcc8lxk2xnug8377fatvbn04" table="user_role" schema="" catalog="mubs" columns="user_id"/>
+      <index name="UK_sb8bbouer5wak8vyiiy4pf2bx" unique="true" columns="username"/>
+      <index name="FK_h9ubqttmjqbwj97eywud0ot9e" unique="false" columns="created_by_user_id"/>
+      <index name="FK_k27nf5g4aplrr8y1wcnud52x0" unique="false" columns="updated_by_user_id"/>
+      <index name="FK_knw7jj62ahqqvfahtxae0k4i1" unique="false" columns="blog_id"/>
+    </table>
+    <table name="user_role" schema="" catalog="mubs" type="TABLE">
+      <column name="role_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="role_id,user_id"/>
+      <foreign-key name="FK_apcc8lxk2xnug8377fatvbn04" columns="user_id" ref-table="user" ref-schema="" ref-catalog="mubs" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_it77eq964jhfqtu54081ebtio" columns="role_id" ref-table="role" ref-schema="" ref-catalog="mubs" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_apcc8lxk2xnug8377fatvbn04" unique="false" columns="user_id"/>
+    </table>
     <table name="proc" schema="" catalog="mysql" type="SYSTEM TABLE">
       <column name="db" sqlType="CHAR" precision="64" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="name" sqlType="CHAR" precision="64" scale="0" nullable="false" jdbcType="1" def="Jyc="/>

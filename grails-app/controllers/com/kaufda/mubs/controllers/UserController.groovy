@@ -85,25 +85,34 @@ class UserController extends AbstractController {
     }
 
     /**
-     * Calls service method to save the chanage in password after validation and handles any error
+     * Calls service method to save the change in password after validation and handles any error
      *
      * @return
      */
     def changePasswordConfirm() {
 
-        Boolean isPasswordChanged = userService.changePassword(params.oldPassword, params.newPassword, params.confirmNewPassword)
+        try {
 
-        if(isPasswordChanged) {
+            Boolean isPasswordChanged = userService.changePassword(params.oldPassword, params.newPassword, params.confirmNewPassword)
 
-            flash.message = message(code: 'user.password.change.successful', default: 'Password is successfully changed.')
+            if(isPasswordChanged) {
 
-        } else {
+                flash.message = message(code: 'user.password.change.successful', default: 'Password is successfully changed.')
 
-            flash.message = message(code: 'error.user.password.change.not.successful', default: 'Password change is not successful.')
+            } else {
+
+                flash.message = message(code: 'error.user.password.change.not.successful', default: 'Password change is not successful.')
+            }
+
+            // Go to home page
+            goToHomePage()
+
+        } catch(e) {
+
+            flash.message = e.getMessage()
+
+            changePassword()
         }
-
-        // Go to home page
-        goToHomePage()
     }
 
     /**
@@ -183,13 +192,9 @@ class UserController extends AbstractController {
 
         userInstance.delete flush:true
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
+        flash.message = message(code: 'default.deleted.message', args: [message(code: 'User.label', default: 'User'), userInstance.username])
 
+       // Go to home page
+        goToHomePage()
+    }
 }
