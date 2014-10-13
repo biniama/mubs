@@ -3,6 +3,9 @@ package com.kaufda.exceptions
 /**
  * Created by biniam on 10/11/2014.
  */
+/**
+    A custom exception method is defined which extends RuntimeException
+*/
 class UserServiceException extends ServiceException {
 
     public static final int ERROR_PASSWORD_DOES_NOT_MATCH = 1001
