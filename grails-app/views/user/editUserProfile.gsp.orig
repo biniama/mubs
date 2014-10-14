@@ -48,8 +48,14 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-12 text-right">
+<<<<<<< HEAD
+                                        <g:link name="updateUserProfile" class="btn btn-default" action="updateUserProfile"
+                                                resource="${userInstance}"><g:message code="user.update.label" default="Update User" />
+                                        </g:link>
+=======
                                         <g:submitButton name="signup" class="btn btn-default"
                                             value="${message(code: 'user.update.label', default: 'Update User')}" />
+>>>>>>> 67847ad7ca2e663a99560e4dfee11887a9029d42
                                     </div>
                                 </div>
                             </div>

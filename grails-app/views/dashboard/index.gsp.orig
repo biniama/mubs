@@ -57,8 +57,12 @@
                                 </div>
                                 <div class="panel-body">
                                     <p>
+<<<<<<< HEAD
+                                        %{--Display to the point where the first full stop '.' sign is found.--}%
+=======
                                         %{--Display to the point where the first full stop '.' sign is found.
                                          One is added to include the full stop in the content)--}%
+>>>>>>> 67847ad7ca2e663a99560e4dfee11887a9029d42
                                         <g:set var="endPoint" value="${blogEntryInstance?.content?.indexOf('.') + 1}" />
 
                                         %{--Check if endPoint is null or less than or equal to zero and display the whole content.--}%

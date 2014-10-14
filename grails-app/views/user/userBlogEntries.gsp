@@ -13,7 +13,7 @@
                     <h1><g:message code="blog.posts.label" default="Blog Posts" /></h1>
 
                     <g:if test="${blogEntriesCount > 0}">
-                        <h4>You have ${blogEntriesCount} blog entries!</h4>
+                        <h4>${blogEntriesCount} blog entries found!</h4>
                     </g:if>
                     <g:else>
                         <h6>No blog entries found for the selected user.</h6>

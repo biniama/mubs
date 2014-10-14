@@ -128,7 +128,11 @@ class UserController extends AbstractController {
         if(null == totalNumberOfVisitsToAllBlogEntries)
             totalNumberOfVisitsToAllBlogEntries = 0
 
+<<<<<<< HEAD
+        // Redirect to user prifle view
+=======
         // Redirect to user profile view
+>>>>>>> 67847ad7ca2e663a99560e4dfee11887a9029d42
         respond currentUser,  model:[totalNumberOfVisitsToAllBlogEntries: totalNumberOfVisitsToAllBlogEntries.toString()]
     }
 
