@@ -13,7 +13,7 @@
                     <h1><g:message code="blog.posts.label" default="Blog Posts" /></h1>
 
                     <g:if test="${blogEntriesCount > 0}">
-                        <h4>You have ${blogEntriesCount} blog entries!</h4>
+                        <h4>${blogEntriesCount} blog entries found!</h4>
                     </g:if>
                     <g:else>
                         <h6>No blog entries found for the selected user.</h6>
@@ -37,7 +37,17 @@
                                 </div>
                                 <div class="panel-body">
                                     <p>
-                                        ${blogEntryInstance?.content.substring(0, 10)}
+                                        %{--Display to the point where the first full stop '.' sign is found.
+                                         One is added to include the full stop in the content)--}%
+                                        <g:set var="endPoint" value="${blogEntryInstance?.content?.indexOf('.') + 1}" />
+
+                                        %{--Check if endPoint is null or less than or equal to zero and display the whole content.--}%
+                                        <g:if test="${endPoint == null || endPoint <= 0}">
+                                            <g:set var="endPoint" value="${blogEntryInstance?.content?.length() - 1}" />
+                                        </g:if>
+
+                                        %{--Display the content--}%
+                                        ${blogEntryInstance?.content?.substring(0, endPoint)}
                                     </p>
                                     <hr>
 

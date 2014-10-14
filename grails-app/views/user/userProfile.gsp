@@ -32,7 +32,7 @@
                             <h3><g:message code="user.profile.label" default="User Profile" /></h3>
                         </div>
 
-                        <g:form url="[resource:userInstance, action:'editUserProfile']" >
+                        <g:form url="[resource:userInstance]" >
 
                             <div class="panel-body form-horizontal">
 
@@ -127,7 +127,7 @@
                                     </div>
 
                                     <hr>
-
+                                    ${totalNumberOfVisitsToAllBlogEntries}
                                     <div class="col-sm-12">
                                         <h4>
                                             <g:message code="user.number.of.visits.to.all.blog.entry.label" default="Your blog entries have been visited a total of ${totalNumberOfVisitsToAllBlogEntries} times."
@@ -140,8 +140,9 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-12 text-right">
-                                        <g:submitButton name="editUserProfile" class="btn btn-default"
-                                            value="${message(code: 'user.edit.label', default: 'Edit User')}" />
+                                        <g:link name="editUserProfile" class="btn btn-default" action="editUserProfile"
+                                                resource="${userInstance}"><g:message code="user.edit.label" default="Edit User" />
+                                        </g:link>
                                     </div>
                                 </div>
 

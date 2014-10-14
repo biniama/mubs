@@ -42,18 +42,14 @@
                         <div class="panel-heading">
                             <h3><g:message code="user.edit.information.label" default="Edit User Information" /></h3>
                         </div>
-
-                        <g:form url="[resource:userInstance]" >
+                        <g:form url="[resource:userInstance, action:'updateUserProfile']" >
                             <div class="panel-body form-horizontal">
                                 <g:render template="editForm" />
 
                                 <div class="form-group">
                                     <div class="col-sm-12 text-right">
-                                        <g:submitButton name="signup" class="btn btn-default" action='updateUserProfile'
+                                        <g:submitButton name="signup" class="btn btn-default"
                                             value="${message(code: 'user.update.label', default: 'Update User')}" />
-                                        <g:actionSubmit class="btn btn-danger" action="delete"
-                                            value="${message(code: 'default.button.delete.label', default: 'Delete')}"
-                                            onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
                                     </div>
                                 </div>
                             </div>
