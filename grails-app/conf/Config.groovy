@@ -127,26 +127,11 @@ log4j = {
             }
 
             test {
-                // Assuming the application will be deployed in a Linux-based server
-                rollingFile name: "file", maxFileSize: 5000000,
-                        file: "/var/log/mubs.log",
-                        threshold: org.apache.log4j.Level.DEBUG
-
-
-                rollingFile name: "stacktrace", maxFileSize: 5000000,
-                        file: "/var/log/mubs-stacktrace.log",
-                        threshold: org.apache.log4j.Level.DEBUG
+                console name:'stacktrace'
             }
 
             production {
-                // Assuming the application will be deployed in a Linux-based server
-                rollingFile name: "file", maxFileSize: 5000000,
-                        file: "/var/log/mubs.log",
-                        threshold: org.apache.log4j.Level.DEBUG
-
-                rollingFile name: "stacktrace", maxFileSize: 5000000,
-                        file: "/var/log/mubs-stacktrace.log",
-                        threshold: org.apache.log4j.Level.DEBUG
+                console name:'stacktrace'
             }
         }
     }
