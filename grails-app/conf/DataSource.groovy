@@ -34,7 +34,7 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://kaufda.com:3306/mubs?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
+            url = "jdbc:mysql://localhost:3306/mubs?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
             username = "mubs"
             password = "mubs"
             properties {
