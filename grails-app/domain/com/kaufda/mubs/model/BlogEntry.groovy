@@ -10,6 +10,8 @@ package com.kaufda.mubs.model
 */
 class BlogEntry extends AbstractDomain {
 
+    static searchable = true
+
     // Title of the blog
     String title
 
