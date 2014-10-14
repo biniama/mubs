@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <p>
-                                        ${blogEntryInstance?.content.substring(0, 10)}
+                                        ${blogEntryInstance?.content?.substring(0, 10)}
                                     </p>
                                     <hr>
 

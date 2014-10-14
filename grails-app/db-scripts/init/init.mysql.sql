@@ -1,3 +1,4 @@
+-- Run the following script to create blank database and user credential in the database
 CREATE DATABASE IF NOT EXISTS mubs;
 
 USE mysql;

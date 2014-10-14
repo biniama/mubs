@@ -6,35 +6,54 @@ import com.kaufda.mubs.model.User
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-class UserController {
+class UserController extends AbstractController {
 
+    // Service classes are injected to the controller
+    // Grails gets this behavior from Spring
     def userService
 
     def blogService
 
+    // Helps to access security related methods such as getCurrentUser()
     def springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    /**
+     * Gets All Blog Entries By UserName
+     *
+     * @return
+     */
     def getAllBlogEntriesByUserName() {
 
+        // Call the service to gets All Blog Entries By UserName
         List<BlogEntry> blogEntries = blogService.getAllBlogEntriesByUserName(params.username)
 
+        // handle if there are errors
         if(null == blogEntries) {
 
             flash.message = message(code: 'user.get.blog.entries.error.result', default: 'No blog entry found.')
 
-            // Go to home page
-            redirect controller: 'dashboard', action: 'index'
+            // Call the method from AbstractController
+            goToHomePage()
         }
 
+        // redirect to userBlogEntries view passing appropriate objects
         respond User.list(params), model: [blogEntriesInstanceList: blogEntries, blogEntriesCount: blogEntries?.size()], view: 'userBlogEntries'
     }
 
+    /**
+     * Redirects to signup view
+     * @return
+     */
     def signup() {
         render (view: 'signup')
     }
 
+    /**
+     * Calls save user information method from user service and handle any error
+     * @return
+     */
     def saveUser() {
 
         User user = userService.saveUserInformation(params.firstName, params.lastName, params.email, params.gender,
@@ -47,52 +66,89 @@ class UserController {
             return
 
         } else {
-
             // successfully saved
             flash.message = message(code: 'user.saveUser.success.result', default: 'User information saved successfully.')
 
             // Go to home page
-            redirect controller: 'dashboard', action: 'index'
+            goToHomePage()
         }
     }
 
+    /**
+     * Redirects to change password view
+     *
+     * @return
+     */
     def changePassword() {
 
         render (view: 'changePassword')
     }
 
+    /**
+     * Calls service method to save the change in password after validation and handles any error
+     *
+     * @return
+     */
     def changePasswordConfirm() {
 
-        Boolean isPasswordChanged = userService.changePassword(params.oldPassword, params.newPassword, params.confirmNewPassword)
+        try {
 
-        if(isPasswordChanged) {
+            Boolean isPasswordChanged = userService.changePassword(params.oldPassword, params.newPassword, params.confirmNewPassword)
 
-            flash.message = message(code: 'user.password.change.successful', default: 'Password is successfully changed.')
+            if(isPasswordChanged) {
 
-        } else {
+                flash.message = message(code: 'user.password.change.successful', default: 'Password is successfully changed.')
 
-            flash.message = message(code: 'error.user.password.change.not.successful', default: 'Password change is not successful.')
+            } else {
+
+                flash.message = message(code: 'error.user.password.change.not.successful', default: 'Password change is not successful.')
+            }
+
+            // Go to home page
+            goToHomePage()
+
+        } catch(e) {
+
+            flash.message = e.getMessage()
+
+            changePassword()
         }
-
-        // Go to home page
-        redirect controller: 'dashboard', action: 'index'
     }
 
+    /**
+     * Loads the user profile and passes Total Number Of Visits To All Blog Entries from blog service
+     *
+     * @return
+     */
     def userProfile() {
 
+        // Get the current user from spring security service
         User currentUser = springSecurityService.getCurrentUser()
 
+        // Get Total Number Of Visits To All Blog Entries from blog service
         Integer totalNumberOfVisitsToAllBlogEntries = blogService.getTotalNumberOfVisitsToAllBlogEntriesByUser(currentUser)
 
+        // Redirect to user prifle view
         respond currentUser,  model:[totalNumberOfVisitsToAllBlogEntries: totalNumberOfVisitsToAllBlogEntries]
     }
 
+    /**
+     * Loads the user profile in edit mode
+     *
+     * @return
+     */
     def editUserProfile(User userInstance) {
 
         respond userInstance, view:'editUserProfile'
         return
     }
 
+    /**
+     * Does some validation, Calls the service method to update the user profile and handles any error
+     *
+     * @param userInstance
+     * @return
+     */
     def updateUserProfile(User userInstance) {
 
         if (userInstance == null) {
@@ -105,6 +161,7 @@ class UserController {
             return
         }
 
+        // Calls the service method to update the user profile
         User user = userService.updateUserInformation(userInstance, params.firstName, params.lastName, params.email, params.gender,
                 params.username, params.blogName, params.blogDescription)
 
@@ -120,72 +177,10 @@ class UserController {
             flash.message = message(code: 'user.update.success.result', default: 'User information updated successfully.')
 
             // Go to home page
-            redirect controller: 'dashboard', action: 'index'
+            goToHomePage()
         }
     }
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond User.list(params), model:[userInstanceCount: User.count()]
-    }
-
-    def show(User userInstance) {
-        respond userInstance
-    }
-
-    def create() {
-        respond new User(params)
-    }
-
-    @Transactional
-    def save(User userInstance) {
-        if (userInstance == null) {
-            notFound()
-            return
-        }
-
-        if (userInstance.hasErrors()) {
-            respond userInstance.errors, view:'create'
-            return
-        }
-
-        userInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-                redirect userInstance
-            }
-            '*' { respond userInstance, [status: CREATED] }
-        }
-    }
-
-    def edit(User userInstance) {
-        respond userInstance
-    }
-
-    @Transactional
-    def update(User userInstance) {
-        if (userInstance == null) {
-            notFound()
-            return
-        }
-
-        if (userInstance.hasErrors()) {
-            respond userInstance.errors, view:'edit'
-            return
-        }
-
-        userInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
-                redirect userInstance
-            }
-            '*'{ respond userInstance, [status: OK] }
-        }
-    }
 
     @Transactional
     def delete(User userInstance) {
@@ -197,22 +192,9 @@ class UserController {
 
         userInstance.delete flush:true
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
+        flash.message = message(code: 'default.deleted.message', args: [message(code: 'User.label', default: 'User'), userInstance.username])
 
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
+       // Go to home page
+        goToHomePage()
     }
 }
