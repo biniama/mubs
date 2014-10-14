@@ -32,12 +32,12 @@ class BootStrap {
 
         Requestmap.findOrSaveByUrlAndConfigAttribute('/dashboard/**', 'permitAll').save()
 
+        // Added for accessing blogs by user name
         Requestmap.findOrSaveByUrlAndConfigAttribute('/blog/**', 'permitAll').save()
 
         // Permitted to Logged In Users Only
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user/changePassword', 'isFullyAuthenticated()').save()
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user/changePasswordConfirm', 'isFullyAuthenticated()').save()
-        Requestmap.findOrSaveByUrlAndConfigAttribute('/user/delete/**', 'isFullyAuthenticated()').save()
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user/userProfile', 'isFullyAuthenticated()').save()
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user/editUserProfile/**', 'isFullyAuthenticated()').save()
         Requestmap.findOrSaveByUrlAndConfigAttribute('/user/updateUserProfile/**', 'isFullyAuthenticated()').save()
@@ -48,13 +48,12 @@ class BootStrap {
         Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/editBlogEntry/**', 'isFullyAuthenticated()').save()
         Requestmap.findOrSaveByUrlAndConfigAttribute('/blogEntry/saveBlogEntry', 'isFullyAuthenticated()').save()
 
-        //TBD
-        //Requestmap.findOrSaveByUrlAndConfigAttribute('/blog*//**', 'permitAll').save()
-        //Requestmap.findOrSaveByUrlAndConfigAttribute('/user*//**', 'permitAll').save()
-
         //************************************************************************************************************
 
         print("Test data generation in progress ...")
+
+        //************************************************************************************************************
+
         // Signup user: 'tim.meyerdierks'
 
         User bloggerUser = User.findByUsername('tim.meyerdierks')

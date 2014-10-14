@@ -3,9 +3,6 @@ package com.kaufda.mubs.controllers
 import com.kaufda.mubs.model.BlogEntry
 import com.kaufda.mubs.model.User
 
-import static org.springframework.http.HttpStatus.*
-import grails.transaction.Transactional
-
 class UserController extends AbstractController {
 
     // Service classes are injected to the controller
@@ -128,8 +125,11 @@ class UserController extends AbstractController {
         // Get Total Number Of Visits To All Blog Entries from blog service
         Integer totalNumberOfVisitsToAllBlogEntries = blogService.getTotalNumberOfVisitsToAllBlogEntriesByUser(currentUser)
 
+        if(null == totalNumberOfVisitsToAllBlogEntries)
+            totalNumberOfVisitsToAllBlogEntries = 0
+
         // Redirect to user prifle view
-        respond currentUser,  model:[totalNumberOfVisitsToAllBlogEntries: totalNumberOfVisitsToAllBlogEntries]
+        respond currentUser,  model:[totalNumberOfVisitsToAllBlogEntries: totalNumberOfVisitsToAllBlogEntries.toString()]
     }
 
     /**
@@ -157,7 +157,7 @@ class UserController extends AbstractController {
         }
 
         if (userInstance.hasErrors()) {
-            respond userInstance.errors, view:'edit'
+            respond userInstance.errors, view:'editUserProfile'
             return
         }
 
@@ -168,8 +168,7 @@ class UserController extends AbstractController {
         // According to Burt Beckwith, rather than using failOnError:true, use the following
         if (null != user && user.hasErrors()) {
 
-            respond userInstance.errors, view:'edit'
-            return
+            editUserProfile(user)
 
         } else {
 
@@ -179,22 +178,5 @@ class UserController extends AbstractController {
             // Go to home page
             goToHomePage()
         }
-    }
-
-
-    @Transactional
-    def delete(User userInstance) {
-
-        if (userInstance == null) {
-            notFound()
-            return
-        }
-
-        userInstance.delete flush:true
-
-        flash.message = message(code: 'default.deleted.message', args: [message(code: 'User.label', default: 'User'), userInstance.username])
-
-       // Go to home page
-        goToHomePage()
     }
 }

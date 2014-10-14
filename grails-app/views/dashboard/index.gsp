@@ -57,7 +57,16 @@
                                 </div>
                                 <div class="panel-body">
                                     <p>
-                                        ${blogEntryInstance?.content?.substring(0, 10)}
+                                        %{--Display to the point where the first full stop '.' sign is found.--}%
+                                        <g:set var="endPoint" value="${blogEntryInstance?.content?.indexOf('.') + 1}" />
+
+                                        %{--Check if endPoint is null or less than or equal to zero and display the whole content.--}%
+                                        <g:if test="${endPoint == null || endPoint <= 0}">
+                                            <g:set var="endPoint" value="${blogEntryInstance?.content?.length() - 1}" />
+                                        </g:if>
+
+                                        %{--Display the content--}%
+                                        ${blogEntryInstance?.content?.substring(0, endPoint)}
                                     </p>
                                     <hr>
 
