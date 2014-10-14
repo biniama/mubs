@@ -1,4 +1,4 @@
-### MUBS is a simple blog system that allows users to manage their own blog. ### 
+# MUBS is a simple blog system that allows users to manage their own blog. #
 
 It is developed using **Grails** - a java based web application developement framework. 
 The application uses **MySql** database to persist data.
