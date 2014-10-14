@@ -43,15 +43,15 @@
                             <h3><g:message code="user.edit.information.label" default="Edit User Information" /></h3>
                         </div>
 
-                        <g:form url="[resource:userInstance]" >
+                        <g:form url="[resource:userInstance, action:'updateUserProfile']" >
                             <div class="panel-body form-horizontal">
                                 <g:render template="editForm" />
+                                <g:hiddenField name="version" value="${userInstance?.version}" />
 
                                 <div class="form-group">
                                     <div class="col-sm-12 text-right">
-                                        <g:link name="updateUserProfile" class="btn btn-default" action="updateUserProfile"
-                                                resource="${userInstance}"><g:message code="user.update.label" default="Update User" />
-                                        </g:link>
+                                        <g:actionSubmit name="updateUserProfile" action="updateUserProfile"
+                                                        class="btn btn-default" value="${message(code: 'user.update.label', default: 'Update User')}" />
                                     </div>
                                 </div>
                             </div>
