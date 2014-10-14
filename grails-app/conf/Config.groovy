@@ -95,9 +95,6 @@ environments {
     }
 }
 
-/**
- * KEEPING APPLICATION LOG IN A FILE
- */
 // log4j configuration
 log4j = {
     // Example of changing the log pattern for the default console appender:
@@ -106,74 +103,19 @@ log4j = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
 
-    appenders {
-
-        environments {
-
-            development {
-
-                String tempDirPath = System.getProperty("java.io.tmpdir")
-
-                if(!tempDirPath.endsWith(File.separator))
-                    tempDirPath += File.separator
-
-                rollingFile name: "file", maxFileSize: 5000000,
-                        file: "${tempDirPath}/mubs.log",
-                        threshold: org.apache.log4j.Level.DEBUG
-
-                console name: "stdout", threshold: org.apache.log4j.Level.DEBUG
-
-                console name: "stacktrace", threshold: org.apache.log4j.Level.DEBUG
-            }
-
-            test {
-                console name:'stacktrace'
-            }
-
-            production {
-                console name:'stacktrace'
-            }
-        }
-    }
-
-    environments {
-
-        development {
-
-            debug 'file': ['com.kaufda.mubs', 'grails.app.services.com.kaufda.mubs.services', 'grails.app.controllers.com.kaufda.mubs.controllers']
-
-            warn 'stdout': ['com.kaufda.mubs', 'grails.app.services.com.kaufda.mubs.services', 'grails.app.controllers.com.kaufda.mubs.controllers']
-        }
-
-        test {
-            info 'file': ['com.kaufda.mubs', 'grails.app.services.com.kaufda.mubs.services', 'grails.app.controllers.com.kaufda.mubs.controllers']
-        }
-
-        production {
-            warn 'file': ['com.kaufda.mubs', 'grails.app.services.com.kaufda.mubs.services', 'grails.app.controllers.com.kaufda.mubs.controllers']
-        }
-
-    }
-
-    root {
-        // send the root logger to 'file' appender instead of console
-        error 'file'
-    }
-
-    error 'file': ['org.codehaus.groovy.grails.web.servlet',  //  controllers
-                   'org.codehaus.groovy.grails.web.pages', //  GSP
-                   'org.codehaus.groovy.grails.web.sitemesh', //  layouts
-                   'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-                   'org.codehaus.groovy.grails.web.mapping', // URL mapping
-                   'org.codehaus.groovy.grails.commons', // core / classloading
-                   'org.codehaus.groovy.grails.plugins', // plugins
-                   'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
-                   'org.springframework',
-                   'org.hibernate',
-                   'net.sf.ehcache.hibernate',
-                   'org.springframework.security',
-                   'grails.app']
-
+    error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
+           'org.codehaus.groovy.grails.web.pages', //  GSP
+           'org.codehaus.groovy.grails.web.sitemesh', //  layouts
+           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+           'org.codehaus.groovy.grails.web.mapping', // URL mapping
+           'org.codehaus.groovy.grails.commons', // core / classloading
+           'org.codehaus.groovy.grails.plugins', // plugins
+           'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
+           'org.springframework',
+           'org.hibernate',
+           'net.sf.ehcache.hibernate',
+           'org.springframework.security',
+           'grails.app'
 }
 
 // Added by the Spring Security Core plugin:
