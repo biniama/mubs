@@ -46,6 +46,8 @@ grails.project.dependency.resolution = {
         mavenLocal()
         grailsCentral()
         mavenCentral()
+        mavenLocal()
+
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
@@ -57,6 +59,9 @@ grails.project.dependency.resolution = {
         runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0-grails-2.4"
+
+        // For Heroku
+        runtime 'postgresql:postgresql:8.4-702.jdbc3'
     }
 
     plugins {
@@ -78,6 +83,11 @@ grails.project.dependency.resolution = {
 
         // Bootstrap CSS for Grails
         runtime ":twitter-bootstrap:3.2.0.2"
+
+        // Grails Heroku
+        compile ':webxml:1.4.1'
+        compile ':heroku:1.0.1'
+        compile ':cloud-support:1.0.8'
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
