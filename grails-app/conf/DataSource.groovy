@@ -34,29 +34,14 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://kaufda.com:3306/mubs?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
-            username = "mubs"
-            password = "mubs"
-            properties {
-               // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
-               jmxEnabled = true
-               initialSize = 5
-               maxActive = 50
-               minIdle = 5
-               maxIdle = 25
-               maxWait = 10000
-               maxAge = 10 * 60000
-               timeBetweenEvictionRunsMillis = 5000
-               minEvictableIdleTimeMillis = 60000
-               validationQuery = "SELECT 1"
-               validationQueryTimeout = 3
-               validationInterval = 15000
-               testOnBorrow = true
-               testWhileIdle = true
-               testOnReturn = false
-               jdbcInterceptors = "ConnectionState"
-               defaultTransactionIsolation = java.sql.Connection.TRANSACTION_READ_COMMITTED
-            }
+            driverClassName = "org.postgresql.Driver"
+            dialect = org.hibernate.dialect.PostgreSQLDialect
+
+            uri = new URI(System.env.DATABASE_URL?:"postgres://eudafkufrlfadx:9H-IeIE-yOIgYSr3mIdXrVWGNH@ec2-54-235-250-41.compute-1.amazonaws.com:5432/dcd4hr2ak1r5c9")
+
+            url = "jdbc:postgresql://"+uri.host+uri.path
+            username = uri.userInfo.split(":")[0]
+            password = uri.userInfo.split(":")[1]
         }
     }
 }
