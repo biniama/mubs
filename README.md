@@ -15,7 +15,7 @@ The IDE (Integrated Development Environment) used is **IntelliJ**.
 * 	A transactional service layer built on Spring's transaction abstraction.
 
 The source code of the application can be found from here. 
-		https://<username>@bitbucket.org/biniama/mubs.git
+		https://biniama@bitbucket.org/biniama/mubs.git
 It can be checked out using **GIT** distributed version control system.
 
 The public can access the web app from
@@ -68,6 +68,7 @@ A responsive User Interface design framework.
 		* Change password
 		* Add new blog entry
 		* Edit a blog entry which they created
+                  Only the user who created the blog entry/post can edit and delete it.
 		* Delete a blog entry which they created
 		* See user profile
 		* Edit user profile
