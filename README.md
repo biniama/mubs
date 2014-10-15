@@ -107,3 +107,10 @@ A responsive User Interface design framework.
 		Blog Description:  A technology blog about Grails, Java, Android, MySql and More
 	
 		Has one blog entry titled : 'Grails - Introduction'
+
+**Road map:**
+
+1. Deploying app to heroku (I had started working on it.)
+2. Using searchable plugin to enable blog searching
+3. Using mail plugin to send mail when users register
+4. Uploading image with the blog and displaying it
