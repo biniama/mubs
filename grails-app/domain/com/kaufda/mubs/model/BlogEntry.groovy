@@ -10,6 +10,8 @@ package com.kaufda.mubs.model
 */
 class BlogEntry extends AbstractDomain {
 
+    static searchable = true
+
     // Title of the blog
     String title
 
@@ -19,14 +21,6 @@ class BlogEntry extends AbstractDomain {
     // Number of people who this blog in detail view
     // Default value is set to 0
     Integer numberOfVisits = 0
-
-    // Image attached to the blog
-    /*
-    The image will be stored in the database for simple access
-    but the best way to store it is in a file based system and
-    store the file location and filename in the database.
-    */
-    byte[] image
 
     static belongsTo = [blog: Blog]
 
@@ -43,8 +37,6 @@ class BlogEntry extends AbstractDomain {
         content blank: false
 
         numberOfVisits nullable: true
-
-        image nullable: true
 
         /* To avoid the overhead of Grails forcing us to create a Blog instance
            every time we create a BlogEntry object

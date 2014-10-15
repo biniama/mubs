@@ -127,7 +127,22 @@ log4j = {
             }
 
             test {
-                // Assuming the application will be deployed in a Linux-based server
+
+                String tempDirPath = System.getProperty("java.io.tmpdir")
+
+                if(!tempDirPath.endsWith(File.separator))
+                    tempDirPath += File.separator
+
+                rollingFile name: "file", maxFileSize: 5000000,
+                        file: "${tempDirPath}/mubs-prod.log",
+                        threshold: org.apache.log4j.Level.DEBUG
+
+                console name: "stdout", threshold: org.apache.log4j.Level.DEBUG
+
+                console name: "stacktrace", threshold: org.apache.log4j.Level.DEBUG
+
+                /*
+                //If the application will be deployed in a Linux-based server
                 rollingFile name: "file", maxFileSize: 5000000,
                         file: "/var/log/mubs.log",
                         threshold: org.apache.log4j.Level.DEBUG
@@ -136,10 +151,27 @@ log4j = {
                 rollingFile name: "stacktrace", maxFileSize: 5000000,
                         file: "/var/log/mubs-stacktrace.log",
                         threshold: org.apache.log4j.Level.DEBUG
+                */
             }
 
             production {
-                // Assuming the application will be deployed in a Linux-based server
+
+                String tempDirPath = System.getProperty("java.io.tmpdir")
+
+                if(!tempDirPath.endsWith(File.separator))
+                    tempDirPath += File.separator
+
+                rollingFile name: "file", maxFileSize: 5000000,
+                        file: "${tempDirPath}/mubs-prod.log",
+                        threshold: org.apache.log4j.Level.DEBUG
+
+                console name: "stdout", threshold: org.apache.log4j.Level.DEBUG
+
+                console name: "stacktrace", threshold: org.apache.log4j.Level.DEBUG
+
+                /*
+                //If the application will be deployed in a Linux-based server
+
                 rollingFile name: "file", maxFileSize: 5000000,
                         file: "/var/log/mubs.log",
                         threshold: org.apache.log4j.Level.DEBUG
@@ -147,6 +179,7 @@ log4j = {
                 rollingFile name: "stacktrace", maxFileSize: 5000000,
                         file: "/var/log/mubs-stacktrace.log",
                         threshold: org.apache.log4j.Level.DEBUG
+                */
             }
         }
     }

@@ -49,7 +49,7 @@
                             <h3><g:message code="blog.entry.new.post.label" default="New Blog Post" /></h3>
                         </div>
 
-                        <g:form url="[resource:blogEntryInstance, action:'updateBlogEntry']" method="PUT">
+                        <g:form url="[resource:blogEntryInstance, action:'updateBlogEntry']">
                             <div class="panel-body form-horizontal">
                                 <g:hiddenField name="version" value="${blogEntryInstance?.version}" />
 

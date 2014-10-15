@@ -2,6 +2,8 @@ package com.kaufda.mubs.model
 
 class Blog extends AbstractDomain {
 
+    static searchable = true
+
     String name
 
     String description

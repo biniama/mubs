@@ -42,14 +42,16 @@
                         <div class="panel-heading">
                             <h3><g:message code="user.edit.information.label" default="Edit User Information" /></h3>
                         </div>
+
                         <g:form url="[resource:userInstance, action:'updateUserProfile']" >
                             <div class="panel-body form-horizontal">
                                 <g:render template="editForm" />
+                                <g:hiddenField name="version" value="${userInstance?.version}" />
 
                                 <div class="form-group">
                                     <div class="col-sm-12 text-right">
-                                        <g:submitButton name="signup" class="btn btn-default"
-                                            value="${message(code: 'user.update.label', default: 'Update User')}" />
+                                        <g:actionSubmit name="updateUserProfile" action="updateUserProfile"
+                                                        class="btn btn-default" value="${message(code: 'user.update.label', default: 'Update User')}" />
                                     </div>
                                 </div>
                             </div>

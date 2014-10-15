@@ -1,0 +1,35 @@
+				How to run the application
+
+Prerequisites:
+
+	* MySql Server for the Database Management
+	* Apache Tomcat Server to host the application
+
+	// Database Configuration
+	1. Copy the script from {application's source main directory}\grails-app\db-scripts\init\init.mysql.sql
+	2. Run the script in MySql to create a blank database and user
+
+	// Web Application Configuration
+	1. Copy 'mubs.war' from the 'target' folder of the application's source 
+	2. Paste it in your tomcat 'webapps' folder
+	3. start tomcat server 
+	4. Go to http://localhost:8080/mubs
+	
+	Test Data:
+	
+	Test Data 1
+		Username: tim.meyerdierks
+		Password: password
+		Blog Name: KaufDA
+		Blog Description: An international technology company
+		
+		Has one blog entry titled : '10 Reasons To Work at KaufDA'
+	
+	Test Data 2
+		Username: biniamasnake
+		Password: password
+		Blog Name: Computer Tips and Tricks
+		Blog Description:  A technology blog about Grails, Java, Android, MySql and More
+	
+		Has one blog entry titled : 'Grails - Introduction'
+	
