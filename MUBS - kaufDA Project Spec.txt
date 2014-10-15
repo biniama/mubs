@@ -1,0 +1,41 @@
+The Task
+You should create a web application that fulfills the requirements listed below. 
+The focus should be on functionality and clean code, not on the UI design.
+The application should then be provided via email, github or any other appropriate way. 
+Of course this should include the source code as well as a little documentation on how to setup and use the application.
+
+Functionality Summary
+	MUBS is a simple blog system that allows users to manage their own blog. 
+	Each user has one personal blog that he can post to after signing up to the system.
+
+Admin Area
+	Signup
+	Login/Logout
+	Change password
+	List blog entries
+	CRUD entry with optional image upload
+
+Public Blog
+	All blogs are accessible individually by separate URLs
+		URL is: /<username>/
+	Entries are displayed in reverse-chronological order
+	There is a detailed view on each blog entry
+	
+Must-Haves
+	At least the backend parts should be implemented in any technology running on the JVM
+	Log messages should appear on the console or in a file
+	An adequate amount of (inline) documentation should be provided
+	The application should come with some basic test data
+	
+Nice-To-Haves
+	Some basic usage statistics in the admin area
+		How many people saw an entry’s detail view
+		How many people saw any detailed views in total
+	Any idea you might have depending on your time left …
+	
+	
+	
+	
+	
+	
+	
