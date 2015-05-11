@@ -75,7 +75,7 @@ A responsive User Interface design framework.
 
 # Video: How to setup (Tomcat and database) and Demo #
 Checkout the 'videos' folder to find videos   
-1. how to setup and
+1. how to setup and   
 2. demo.
 
 # How to run the application #
