@@ -1,0 +1,9 @@
+language: groovy
+jdk:
+    - openjdk7
+branches:
+    only:
+      - master
+script: ./grailsw refresh-dependencies
+        && ./grailsw test-app
+      
