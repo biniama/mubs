@@ -7,6 +7,6 @@ branches:
       - master
 before_script:
     - chmod +x grailsw
- script: ./grailsw refresh-dependencies
+script: ./grailsw refresh-dependencies
         && ./grailsw test-app
       
