@@ -26,9 +26,9 @@ environments {
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost:3306/mubs?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
-            username = "mubs"
-            password = "mubs"
+            url = "jdbc:mysql://127.0.0.1:3306/mubs?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
+            username = "root"
+            password = ""
         }
     }
     production {

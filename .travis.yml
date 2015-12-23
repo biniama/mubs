@@ -7,6 +7,8 @@ branches:
       - master
 before_script:
     - chmod +x grailsw
+    - mysql -e 'create database mubs;'
 script: ./grailsw refresh-dependencies
         && ./grailsw test-app
-      
+services:
+  - mysql
