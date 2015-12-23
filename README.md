@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/biniama/mubs.svg?branch=master)](https://travis-ci.org/biniama/mubs)
+
 # MUBS is a simple blog system that allows users to manage their own blog. #
 
 It is developed using **Grails** - a java based web application developement framework. 
