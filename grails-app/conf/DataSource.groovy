@@ -19,7 +19,7 @@ environments {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:postgresql://localhost:5432/mubs"
             username = "postgres"
-            password = "Samsung"
+            password = "password"
         }
     }
     test {
@@ -30,7 +30,11 @@ environments {
             // url = "jdbc:postgresql://" + uri.host + ":" + uri.port + uri.path
             // username = uri.userInfo.split(":")[0]
             // password = uri.userInfo.split(":")[1]
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            //url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            //postgres://jgwypzkgqtgqfn:kGRBz6FgRhW3ScMSSJ02BcJfhH@ec2-54-217-208-102.eu-west-1.compute.amazonaws.com:5432/d9ielq8pokeai4
+            url = "jdbc:postgresql://ec2-54-217-208-102.eu-west-1.compute.amazonaws.com:5432/d9ielq8pokeai4"
+            username = "jgwypzkgqtgqfn"
+            password = "kGRBz6FgRhW3ScMSSJ02BcJfhH"
         }
     }
     production {
