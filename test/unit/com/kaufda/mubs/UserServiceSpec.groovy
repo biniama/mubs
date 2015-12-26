@@ -19,6 +19,6 @@ class UserServiceSpec extends Specification {
     void "test something"() {
         
         boolean fake = true
-        assert fake = true
+        assert fake == true
     }
 }
