@@ -26,10 +26,11 @@ environments {
         dataSource {
             dbCreate = "update"
             //uri = new URI(System.env.DATABASE_URL?:"postgres://avdpblkkrmgnat:mkGqcZ5jqbzSFoVJS8wH8JAfvS@ec2-54-217-238-100.eu-west-1.compute.amazonaws.com:5432/d22us5v71g45gl")
-            uri = new URI(System.env.DATABASE_URL?:"postgres://test:test@localhost/test")
-            url = "jdbc:postgresql://" + uri.host + ":" + uri.port + uri.path
-            username = uri.userInfo.split(":")[0]
-            password = uri.userInfo.split(":")[1]
+            // uri = new URI(System.env.DATABASE_URL?:"postgres://test:test@localhost/test")
+            // url = "jdbc:postgresql://" + uri.host + ":" + uri.port + uri.path
+            // username = uri.userInfo.split(":")[0]
+            // password = uri.userInfo.split(":")[1]
+            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }
     production {
