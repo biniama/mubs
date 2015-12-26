@@ -25,15 +25,16 @@ environments {
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:postgresql://127.0.0.1:5432/mubs"
-            username = "root"
-            password = ""
+            uri = new URI(System.env.DATABASE_URL?:"postgres://avdpblkkrmgnat:mkGqcZ5jqbzSFoVJS8wH8JAfvS@ec2-54-217-238-100.eu-west-1.compute.amazonaws.com:5432/d22us5v71g45gl")
+            url = "jdbc:postgresql://" + uri.host + ":" + uri.port + uri.path
+            username = uri.userInfo.split(":")[0]
+            password = uri.userInfo.split(":")[1]
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            uri = new URI(System.env.DATABASE_URL?:"postgres://test:test@localhost/test")
+            uri = new URI(System.env.DATABASE_URL?:"postgres://jgwypzkgqtgqfn:kGRBz6FgRhW3ScMSSJ02BcJfhH@ec2-54-217-208-102.eu-west-1.compute.amazonaws.com:5432/d9ielq8pokeai4")                                                    
             url = "jdbc:postgresql://" + uri.host + ":" + uri.port + uri.path
             username = uri.userInfo.split(":")[0]
             password = uri.userInfo.split(":")[1]
