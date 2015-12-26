@@ -32,7 +32,7 @@ environments {
             // password = uri.userInfo.split(":")[1]
             //url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
             //postgres://jgwypzkgqtgqfn:kGRBz6FgRhW3ScMSSJ02BcJfhH@ec2-54-217-208-102.eu-west-1.compute.amazonaws.com:5432/d9ielq8pokeai4
-            url = "jdbc:postgresql://ec2-54-217-208-102.eu-west-1.compute.amazonaws.com:5432/d9ielq8pokeai4"
+            url = "jdbc:postgresql://ec2-54-217-208-102.eu-west-1.compute.amazonaws.com:5432/d9ielq8pokeai4?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory"
             username = "jgwypzkgqtgqfn"
             password = "kGRBz6FgRhW3ScMSSJ02BcJfhH"
         }
