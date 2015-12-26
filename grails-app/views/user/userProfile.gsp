@@ -127,7 +127,6 @@
                                     </div>
 
                                     <hr>
-                                    ${totalNumberOfVisitsToAllBlogEntries}
                                     <div class="col-sm-12">
                                         <h4>
                                             <g:message code="user.number.of.visits.to.all.blog.entry.label" default="Your blog entries have been visited a total of ${totalNumberOfVisitsToAllBlogEntries} times."

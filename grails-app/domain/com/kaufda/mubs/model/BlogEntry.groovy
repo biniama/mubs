@@ -27,7 +27,7 @@ class BlogEntry extends AbstractDomain {
     static mapping = {
 
         // set the constraint for a String field so that its MySQL column type is TEXT
-        content type: 'text'
+        content type: 'text' 
     }
 
     static constraints = {

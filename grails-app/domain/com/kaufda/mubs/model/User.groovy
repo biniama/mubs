@@ -49,6 +49,7 @@ class User extends AbstractDomain {
     }
 
 	static mapping = {
+        table '`user`'
 		password column: '`password`'
 	}
 
