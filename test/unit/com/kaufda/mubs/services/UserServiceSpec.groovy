@@ -1,4 +1,4 @@
-package mubs
+package com.kaufda.mubs.services
 
 import grails.test.mixin.TestMixin
 import grails.test.mixin.support.GrailsUnitTestMixin
