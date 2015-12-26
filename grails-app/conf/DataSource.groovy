@@ -25,7 +25,8 @@ environments {
     test {
         dataSource {
             dbCreate = "update"
-            uri = new URI(System.env.DATABASE_URL?:"postgres://avdpblkkrmgnat:mkGqcZ5jqbzSFoVJS8wH8JAfvS@ec2-54-217-238-100.eu-west-1.compute.amazonaws.com:5432/d22us5v71g45gl")
+            //uri = new URI(System.env.DATABASE_URL?:"postgres://avdpblkkrmgnat:mkGqcZ5jqbzSFoVJS8wH8JAfvS@ec2-54-217-238-100.eu-west-1.compute.amazonaws.com:5432/d22us5v71g45gl")
+            uri = new URI(System.env.DATABASE_URL?:"postgres://test:test@localhost/test")
             url = "jdbc:postgresql://" + uri.host + ":" + uri.port + uri.path
             username = uri.userInfo.split(":")[0]
             password = uri.userInfo.split(":")[1]
