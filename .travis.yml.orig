@@ -1,0 +1,35 @@
+sudo: required
+language: groovy
+jdk:
+<<<<<<< HEAD
+- openjdk7
+=======
+  - oraclejdk8
+>>>>>>> ddc6804c8d4e0c32a1ae2e21b24db318e7e8134d
+services:
+- postgresql
+branches:
+  only:
+  - master
+before_script:
+- chmod +x grailsw
+script: ./grailsw clean && ./grailsw refresh-dependencies && ./grailsw test-app --stacktrace
+deploy:
+<<<<<<< HEAD
+  provider: heroku
+  api_key:
+    secure: Xt9u9vDgQIl5+vDXgOL+hBrIm9kBVJOWQ52kx9IDL4mTUmNdtiamctc+INzmbmRtq5kq/9mOql4SwXJtkU9lKQInZeq2rdO0VH6TL77kQB4LeUVYF41fokVdohR7BEo3IUIyjasQ3WEBwiuFE5nh44x1NTiXHG4zBUdA2/oFU+vOJGaBcVqpSWssmTA2OEOm6npY+GCkjI68NYz06xW6L2RKkO/LKYL90ulkT1d91g5oPwPazv2t1ROkbs3k4ZjF/Y+c6LzrqC3xyA898hbwdh6u8z9qxZbjL8YLsXHO6G+YfvhIrhQqyCKxqU5BtyTo6W7dLXix8NZW46JRBBlmgq1S6bpuzWXP/oHtMp3x33F5Y/W7x2jaCKxm+dqPzdM+10Ilj4L0mxiaWAqW0K08/yruws2QJQPOspwWEXiJ9sj+v9CGiniAbuEbDKJyTZYa8jmtxB2gObh9DqG7iVT3+KIfSR5630D1fevxUoVvxbAKK6KhJjGe+OIowSlJIp4XIN5J958dDYOxGikjMNPNFYIca4g3GRR5020wHokoCSdzaQbJ8W6c/4RnmekGmVB+q622woZspvpv/ZtmRleFlAMF6KhVIH+fOtj2RLcsff/JvKKNy4W0Y5h9eRaC5NCRQvr+Pzsa6TPwl/ABHOQzsdEZ1pVAqWuLFilkjxRr4is=
+  app: mubs
+  on:
+    repo: biniama/mubs
+=======
+    provider: heroku
+    api_key:
+        secure: "CMAU3G0nWSuUOY0MqNt/pZ6G0VtUONCQV7X0MAFpd+drxYmafkD82jdddiZrXp74ypHJBL9ywfYbQPlyv/VGaf8pcyStDPOrBc6qOQSnyR7z446B4Db3587EV07A8jLmAx+m8nDzGoaYqIBnB6iN4QSs7e9Dmg/ml6HyQlPrBoW12+jHshLZGCG8jCAtvl2roYC3diGy4fpiCrQiTwqr3aE5t8E6c+5BcHLsW48+ADFzJwZyVj258kMx6RXyTTdN7gINPKJmQYD8MSW7PttXh61oqaqXJUYwT+2IVnk5cmoEsyk5VeeX1Gg8ICEbs00jK7pMiTgq4vLEp2CRXVF9N2Cs+33zkjZi05TCtjoBKgJc7FoGUlfiIpGM2fm10NvU+u7XOxyuGAGqr0fVhyZn+NtIo7sL3+dXAHVf5x9/HOA3iqTTIKiVMwueuhoAoh/dYzAwiup5IJnnLPqXBxKiPGhXcQNy/NI8tpiN8qpUR3CJ1YG5kg6IvuwzLU1yfbJmOvvPTJO6rZnwlLv6VsFdrOnU/VCstO6xsweCS+G7GXuHmG2BQi4SgBTQxb9uSt6Ia/QacoviZSsmuQojqKnV0pNX8jwLLOEaG2GrexGzsRfBbbSQ8bh5S4mrfEGJw5vHDa24UtpkW+mJQ4pZYUWgvn4hKOS1HUNd257muIUVauI="
+    app:
+        develop: mubs-stage
+        master: mubs
+        
+        
+        
+>>>>>>> ddc6804c8d4e0c32a1ae2e21b24db318e7e8134d
