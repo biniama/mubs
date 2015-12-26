@@ -9,7 +9,8 @@ branches:
         - master
 before_script:
     - chmod +x grailsw
-script: ./grailsw refresh-dependencies
+script: ./grailsw clean
+    && ./grailsw refresh-dependencies
     && ./grailsw test-app --stacktrace
 deploy:
     provider: heroku
@@ -18,3 +19,6 @@ deploy:
     app:
         develop: mubs-stage
         master: mubs
+        
+        
+        
