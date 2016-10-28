@@ -24,4 +24,4 @@ env:
     secure: KN+aKoFVO1P1oqe/DSwlGQtDsDoVX7cpRa9rIy1CQg8w+GQB+GTmuU3d45WsRy7Iw11FdY0O3+hMFd4Q/NzKkknpkkRstAgR4Nmf/k5EORxzfERYl9hDP47Wy3QBU5TVDEFvYydS5AthVLUuuFK0AZ+MHga/La1UNP0DnwKL0b+/Ij2vnML01G9PybXfJ3zzQ/rVF3uHO+4XI9bosSafXhZOvHhEUevcc+3jruywEr5UB08itsOe6AmPV41+0j4H0qGjLD9QTeRFMwD6SP+Lgg70t3+qSmMs2S8qFd1lGZe9lSYjOg3ryxo+KDrYyc2aWKinODPIvEH+PFmUHAku4CyK8HYXwGHaCpTfuDYGYZeP0DmFOHu0YPLCZkVQjzNPuVA3gQ2/z7pFLGt1g4rMeWtTBdhzthHOeTla7ppHxBV7rC+CgbPluR3FaC88brK1x+uwB3+MeO207meba9uUQoBtTBr16rqGu9HhDabRTuQZpaouMrR0PUBmDdv/dya9vDnXWaiSycQwGwuB+xqcgItFoKhxr6fvScITMri5hJ6IpGVG3M3Rrf7gbDRZuOC4z2i0NxSNAAY+KCYXa0w1O6iz6zzU0MmA40Mcstdp+wNuauFW/LtKE4sa7wHvaHSdt944FGfYhrDTQEouxaD9upt0ok1R5vAJ45J2yRNkhds=
 script:
   # other script steps might be done before running the actual SonarQube analysis
-  - sonar-scanner -Dsonar.login=biniama
+  - sonar-scanner -Dsonar.login=5df41e5538588b9bd01039a1dabfe442137b47a8
