@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3027966908">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="mubs dev" uuid="669ed08a-ce0e-4c64-85e2-ecdf6df05f55">
-      <driver-ref>mysql</driver-ref>
+      <driver-ref>ec80d88b-0b8e-4ba3-a2c7-24732d680d15</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/mubs?useUnicode=yes&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</jdbc-url>
-      <user-name>mubs</user-name>
-      <user-password>dfc7dfdfdfc8dfd9</user-password>
-      <libraries>
-        <library>
-          <url>file://$PROJECT_DIR$/lib/mysql-connector-java-5.1.29-bin.jar</url>
-        </library>
-      </libraries>
+      <jdbc-url>jdbc:postgresql://localhost:5432/mubs</jdbc-url>
+      <explain-plan-config>
+        <provider>com.intellij.database.plan.postgres.PostgresExplainPlanProvider</provider>
+      </explain-plan-config>
     </data-source>
   </component>
 </project>
-
